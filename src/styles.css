@@ -1,0 +1,27 @@
+@import "tailwindcss" source(none);
+@source "../src";
+
+@theme inline {
+  --font-serif: "Lora", Georgia, Cambria, "Times New Roman", Times, serif;
+  --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+
+  --color-ink: #090023;
+  --color-canvas: #F9F8F5;
+  --color-surface: #FFFFFF;
+  --color-blush: #FFA8CD;
+  --color-muted: #f3f0ed;
+}
+
+body {
+  background-color: var(--color-canvas);
+  color: var(--color-ink);
+  font-family: var(--font-serif);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-serif);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
