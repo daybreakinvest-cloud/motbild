@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { type ReactNode, useState } from "react";
-import { Menu, X, Mail, Phone, MapPin } from "lucide-react";
+import { Menu, X, Mail, Phone, MapPin, Heart } from "lucide-react";
 
 export function SiteLayout({ children }: { children: ReactNode }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -9,43 +9,34 @@ export function SiteLayout({ children }: { children: ReactNode }) {
     <div className="min-h-screen bg-[#F9F8F5] text-[#090023] flex flex-col font-serif selection:bg-[#FFA8CD] selection:text-[#090023]">
       {/* HEADER */}
       <header className="h-20 bg-[#FFFFFF] border-b border-black/10 px-6 md:px-12 flex items-center justify-between sticky top-0 z-40">
-        <Link to="/" className="flex items-center gap-3 group">
-          <div className="flex flex-col">
-            <div className="flex items-center gap-2">
-              <span className="text-2xl font-bold tracking-tight text-[#090023] font-serif lowercase">
-                motbild
-              </span>
-              <span className="text-xl font-mono text-[#090023] font-black">&gt;&lt;</span>
-            </div>
-            <span className="text-[10px] uppercase font-sans tracking-widest text-[#090023]/60 -mt-1 font-semibold">
-              Bibliskt Unitariskt Nätverk
-            </span>
-          </div>
+        {/* LOGO I HEADERN */}
+        <Link to="/" className="flex items-center gap-3">
+          <img src="/logo-header.svg" alt="Motbild" className="h-8 md:h-9 w-auto" />
         </Link>
 
-        {/* Desktop-meny */}
+        {/* MENY FÖR DATOR */}
         <nav className="hidden md:flex items-center gap-8 text-sm font-sans font-medium text-[#090023]/80">
-          <Link to="/om-oss" className="hover:text-[#090023] transition-colors [&.active]:font-bold [&.active]:text-[#090023]">
-            Om oss
-          </Link>
-          <Link to="/artiklar" className="hover:text-[#090023] transition-colors [&.active]:font-bold [&.active]:text-[#090023]">
+          <Link
+            to="/artiklar"
+            className="hover:text-[#090023] transition-colors [&.active]:font-bold [&.active]:text-[#090023]"
+          >
             Artiklar
           </Link>
-          <Link to="/debatt" className="hover:text-[#090023] transition-colors [&.active]:font-bold [&.active]:text-[#090023]">
+          <Link
+            to="/debatt"
+            className="hover:text-[#090023] transition-colors [&.active]:font-bold [&.active]:text-[#090023]"
+          >
             Debatt
           </Link>
-          <Link to="/medarrangor" className="hover:text-[#090023] transition-colors [&.active]:font-bold [&.active]:text-[#090023]">
-            Medarrangör
-          </Link>
           <Link
-            to="/bli-medlem"
-            className="px-4 py-2 rounded-xl bg-[#FFA8CD] hover:bg-[#ff94be] text-[#090023] font-bold text-xs uppercase tracking-wider transition-transform hover:scale-105"
+            to="/medarrangor"
+            className="px-4 py-2 rounded-xl bg-[#090023] hover:bg-black text-white font-bold text-xs uppercase tracking-wider transition-transform hover:scale-105"
           >
-            Bli medlem
+            Medarrangör
           </Link>
         </nav>
 
-        {/* Mobilknapp */}
+        {/* MOBILKNAPP */}
         <button
           type="button"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -56,56 +47,73 @@ export function SiteLayout({ children }: { children: ReactNode }) {
         </button>
       </header>
 
-      {/* Mobilmeny */}
+      {/* MOBILMENY */}
       {mobileMenuOpen && (
         <div className="md:hidden bg-[#090023] text-[#F9F8F5] px-6 py-6 border-b border-white/10 space-y-4 font-sans">
-          <Link to="/om-oss" onClick={() => setMobileMenuOpen(false)} className="block py-1 hover:text-[#FFA8CD]">
-            Om oss
-          </Link>
           <Link to="/artiklar" onClick={() => setMobileMenuOpen(false)} className="block py-1 hover:text-[#FFA8CD]">
             Artiklar
           </Link>
           <Link to="/debatt" onClick={() => setMobileMenuOpen(false)} className="block py-1 hover:text-[#FFA8CD]">
             Debatt
           </Link>
-          <Link to="/medarrangor" onClick={() => setMobileMenuOpen(false)} className="block py-1 hover:text-[#FFA8CD]">
+          <Link to="/medarrangor" onClick={() => setMobileMenuOpen(false)} className="block py-1 text-[#FFA8CD] font-bold">
             Medarrangör
-          </Link>
-          <Link
-            to="/bli-medlem"
-            onClick={() => setMobileMenuOpen(false)}
-            className="block text-center py-3 rounded-xl bg-[#FFA8CD] text-[#090023] font-bold text-sm"
-          >
-            Bli medlem
           </Link>
         </div>
       )}
 
-      {/* Sidinnehåll */}
+      {/* SIDANS INNEHÅLL */}
       <main className="flex-1">{children}</main>
 
       {/* FOOTER */}
       <footer className="bg-[#090023] text-[#F9F8F5] pt-14 pb-12 border-t border-white/10 font-sans">
         <div className="max-w-5xl mx-auto px-6">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 pb-10 border-b border-white/10">
+          {/* STOR CENTRERAD LOGO I FOOTERN (PRECISE SOM UNIKAST & BOSELEKT) */}
+          <div className="py-12 border-b border-white/10 text-center">
+            <Link to="/" className="inline-block" aria-label="Till startsidan">
+              <img
+                src="/logo-footer.svg"
+                alt="Motbild"
+                className="h-14 sm:h-20 md:h-28 mx-auto w-auto"
+              />
+            </Link>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 py-10 border-b border-white/10">
+            {/* Kolumn 1: Om organisationen */}
             <div>
-              <div className="flex items-center gap-2 mb-2">
-                <span className="text-xl font-serif font-bold text-white lowercase">motbild</span>
-                <span className="text-lg font-mono text-white font-black">&gt;&lt;</span>
-              </div>
               <p className="text-xs text-[#F9F8F5]/70 max-w-sm leading-relaxed mb-4">
                 Bibliskt Unitariskt Nätverk – för självständig prövning, biblisk forskning och öppen teologisk debatt.
               </p>
-              <div className="flex gap-4 text-xs">
-                <Link to="/stadgar" className="hover:underline text-[#FFA8CD]">
-                  Stadgar
-                </Link>
-                <Link to="/integritetspolicy" className="hover:underline text-[#FFA8CD]">
-                  Integritetspolicy
-                </Link>
-              </div>
+              <Link
+                to="/artiklar"
+                className="inline-flex items-center gap-1.5 text-xs text-[#FFA8CD] hover:underline"
+              >
+                <Heart className="size-3.5 fill-current" /> Stöd Motbild med en gåva
+              </Link>
             </div>
 
+            {/* Kolumn 2: Föreningslänkar */}
+            <div className="space-y-2 text-xs">
+              <p className="font-bold uppercase tracking-wider text-white text-[11px] mb-2">Information &amp; Nätverk</p>
+              <p>
+                <Link to="/om-oss" className="text-[#F9F8F5]/80 hover:text-white hover:underline">
+                  Om oss &amp; Vår tro
+                </Link>
+              </p>
+              <p>
+                <Link to="/bli-medlem" className="text-[#FFA8CD] font-bold hover:underline">
+                  Ansök om medlemskap
+                </Link>
+              </p>
+              <p>
+                <Link to="/stadgar" className="text-[#F9F8F5]/80 hover:text-white hover:underline">
+                  Föreningens stadgar
+                </Link>
+              </p>
+            </div>
+
+            {/* Kolumn 3: Kontaktuppgifter */}
             <div className="space-y-2 text-xs text-[#F9F8F5]/80 md:text-right">
               <p className="font-bold uppercase tracking-wider text-white text-[11px] mb-2">Kontakt</p>
               <p className="flex md:justify-end items-center gap-2">
