@@ -44,24 +44,12 @@ export function SiteLayout({ children }: { children: ReactNode }) {
         </Link>
 
         {/* MENY FÖR DATOR */}
-        <nav className="hidden md:flex items-center gap-8 text-sm font-sans font-medium text-[#090023]/80">
+        <nav className="hidden md:flex items-center gap-8 text-sm font-sans font-medium text-[#090023]">
           <Link
             to="/artiklar"
-            className="hover:text-[#090023] transition-colors [&.active]:font-bold [&.active]:text-[#090023]"
+            className="hover:underline transition-colors [&.active]:font-bold"
           >
             Artiklar
-          </Link>
-          <Link
-            to="/debatt"
-            className="hover:text-[#090023] transition-colors [&.active]:font-bold [&.active]:text-[#090023]"
-          >
-            Debatt
-          </Link>
-          <Link
-            to="/medarrangor"
-            className="px-4 py-2 rounded-xl bg-[#090023] hover:bg-black text-white font-bold text-xs uppercase tracking-wider transition-transform hover:scale-105"
-          >
-            Medarrangör
           </Link>
         </nav>
 
