@@ -40,7 +40,7 @@ export function SiteLayout({ children }: { children: ReactNode }) {
       >
         {/* LOGO */}
         <Link to="/" className="flex items-center">
-          <img src="/logo-header.svg" alt="Motbild" className="h-6 md:h-7 w-auto object-contain" />
+          <img src="/logo-header.svg" alt="Motbild" className="h-4 md:h-5 w-auto object-contain" />
         </Link>
 
         {/* MENY FÖR DATOR */}
@@ -104,14 +104,7 @@ export function SiteLayout({ children }: { children: ReactNode }) {
               <p className="text-xs text-[#F9F8F5]/70 max-w-sm leading-relaxed mb-4 font-serif">
                 Plattform för självständig prövning, biblisk forskning och öppen teologisk debatt.
               </p>
-              <Link
-                to="/artiklar"
-                className="inline-flex items-center gap-1.5 text-xs text-[#FFA8CD] hover:underline font-sans"
-              >
-                <Heart className="size-3.5 fill-current" /> Stöd Motbild med en gåva
-              </Link>
             </div>
-
             {/* Kolumn 2 */}
             <div className="space-y-2 text-xs">
               <p className="font-bold uppercase tracking-wider text-white text-[11px] mb-2">Information &amp; Förening</p>
@@ -121,7 +114,7 @@ export function SiteLayout({ children }: { children: ReactNode }) {
                 </Link>
               </p>
               <p>
-                <Link to="/bli-medlem" className="text-[#FFA8CD] font-bold hover:underline">
+                <Link to="/bli-medlem" className="text-[#F9F8F5]/80 hover:text-white hover:underline">
                   Ansök om medlemskap
                 </Link>
               </p>
@@ -136,13 +129,13 @@ export function SiteLayout({ children }: { children: ReactNode }) {
             <div className="space-y-2 text-xs text-[#F9F8F5]/80 md:text-right">
               <p className="font-bold uppercase tracking-wider text-white text-[11px] mb-2">Kontakt</p>
               <p className="flex md:justify-end items-center gap-2">
-                <MapPin className="size-3.5 text-[#FFA8CD]" /> Kavaljersstigen 16, 165 57 Hässelby
+                <MapPin className="size-3.5 text-[#F9F8F5]/60" /> Kavaljersstigen 16, 165 57 Hässelby
               </p>
               <p className="flex md:justify-end items-center gap-2">
-                <Mail className="size-3.5 text-[#FFA8CD]" /> support@motbild.se
+                <Mail className="size-3.5 text-[#F9F8F5]/60" /> support@motbild.se
               </p>
               <p className="flex md:justify-end items-center gap-2">
-                <Phone className="size-3.5 text-[#FFA8CD]" /> 073-330 29 83
+                <Phone className="size-3.5 text-[#F9F8F5]/60" /> 073-330 29 83
               </p>
             </div>
           </div>
