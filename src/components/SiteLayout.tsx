@@ -7,11 +7,10 @@ export function SiteLayout({ children }: { children: ReactNode }) {
 
   return (
     <div className="min-h-screen bg-[#F9F8F5] text-[#090023] flex flex-col font-serif selection:bg-[#FFA8CD] selection:text-[#090023]">
-      {/* HEADER */}
+      {/* 1. HEADER (Mindre och diskretare logo) */}
       <header className="h-20 bg-[#FFFFFF] border-b border-black/10 px-6 md:px-12 flex items-center justify-between sticky top-0 z-40">
-        {/* LOGO I HEADERN */}
-        <Link to="/" className="flex items-center gap-3">
-          <img src="/logo-header.svg" alt="Motbild" className="h-8 md:h-9 w-auto" />
+        <Link to="/" className="flex items-center">
+          <img src="/logo-header.svg" alt="Motbild" className="h-6 md:h-7 w-auto object-contain" />
         </Link>
 
         {/* MENY FÖR DATOR */}
@@ -65,29 +64,19 @@ export function SiteLayout({ children }: { children: ReactNode }) {
       {/* SIDANS INNEHÅLL */}
       <main className="flex-1">{children}</main>
 
-      {/* FOOTER */}
+      {/* 2. FOOTER */}
       <footer className="bg-[#090023] text-[#F9F8F5] pt-14 pb-12 border-t border-white/10 font-sans">
         <div className="max-w-5xl mx-auto px-6">
-          {/* STOR CENTRERAD LOGO I FOOTERN (PRECISE SOM UNIKAST & BOSELEKT) */}
-          <div className="py-12 border-b border-white/10 text-center">
-            <Link to="/" className="inline-block" aria-label="Till startsidan">
-              <img
-                src="/logo-footer.svg"
-                alt="Motbild"
-                className="h-14 sm:h-20 md:h-28 mx-auto w-auto"
-              />
-            </Link>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 py-10 border-b border-white/10">
+          {/* ÖVRE DEL: MENY, INFORMATION & KONTAKT */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 pb-12 border-b border-white/10">
             {/* Kolumn 1: Om organisationen */}
             <div>
-              <p className="text-xs text-[#F9F8F5]/70 max-w-sm leading-relaxed mb-4">
-                Bibliskt Unitariskt Nätverk – för självständig prövning, biblisk forskning och öppen teologisk debatt.
+              <p className="text-xs text-[#F9F8F5]/70 max-w-sm leading-relaxed mb-4 font-serif">
+                Plattform för självständig prövning, biblisk forskning och öppen teologisk debatt.
               </p>
               <Link
                 to="/artiklar"
-                className="inline-flex items-center gap-1.5 text-xs text-[#FFA8CD] hover:underline"
+                className="inline-flex items-center gap-1.5 text-xs text-[#FFA8CD] hover:underline font-sans"
               >
                 <Heart className="size-3.5 fill-current" /> Stöd Motbild med en gåva
               </Link>
@@ -95,7 +84,7 @@ export function SiteLayout({ children }: { children: ReactNode }) {
 
             {/* Kolumn 2: Föreningslänkar */}
             <div className="space-y-2 text-xs">
-              <p className="font-bold uppercase tracking-wider text-white text-[11px] mb-2">Information &amp; Nätverk</p>
+              <p className="font-bold uppercase tracking-wider text-white text-[11px] mb-2">Information &amp; Förening</p>
               <p>
                 <Link to="/om-oss" className="text-[#F9F8F5]/80 hover:text-white hover:underline">
                   Om oss &amp; Vår tro
@@ -128,8 +117,26 @@ export function SiteLayout({ children }: { children: ReactNode }) {
             </div>
           </div>
 
-          <div className="pt-6 text-center text-xs text-[#F9F8F5]/50">
-            © {new Date().getFullYear()} Motbild. Alla rättigheter förbehållna.
+          {/* MITTENDEL: ENORM FULLBREDS-LOGO (PLACERAD UNDER MENYN OCH OVANFÖR COPYRIGHT) */}
+          <div className="py-12 border-b border-white/10 text-center">
+            <Link to="/" className="block w-full" aria-label="Till startsidan">
+              <img
+                src="/logo-footer.svg"
+                alt="Motbild"
+                className="w-full max-h-36 sm:max-h-48 md:max-h-60 mx-auto object-contain"
+              />
+            </Link>
+          </div>
+
+          {/* NEDRE DEL: COPYRIGHT, FÖRENINGEN & SÄTE (SOM PÅ UNIKAST/BOSELEKT) */}
+          <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#F9F8F5]/60">
+            <p>
+              © {new Date().getFullYear()} Föreningen Motbild. Säte: Stockholm, Sverige.
+            </p>
+            <div className="flex gap-4">
+              <Link to="/stadgar" className="hover:underline">Stadgar</Link>
+              <Link to="/integritetspolicy" className="hover:underline">Integritetspolicy</Link>
+            </div>
           </div>
         </div>
       </footer>
