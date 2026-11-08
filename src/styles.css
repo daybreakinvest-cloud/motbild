@@ -2,7 +2,7 @@
 @source "../src";
 
 @theme inline {
-  --font-serif: "Lora", Georgia, Cambria, "Times New Roman", Times, serif;
+  --font-serif: "Book Antiqua", Palatino, "Palatino Linotype", "Palatino LT STD", Georgia, serif;
   --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 
   --color-ink: #090023;
