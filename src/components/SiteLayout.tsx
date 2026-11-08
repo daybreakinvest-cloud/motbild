@@ -1,14 +1,44 @@
 import { Link } from "@tanstack/react-router";
-import { type ReactNode, useState } from "react";
+import { type ReactNode, useState, useEffect } from "react";
 import { Menu, X, Mail, Phone, MapPin, Heart } from "lucide-react";
 
 export function SiteLayout({ children }: { children: ReactNode }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [showHeader, setShowHeader] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
+
+  // Smart skroll: gömmer headern när man skrollar ner, visar den när man skrollar upp
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+
+      if (currentScrollY < 10) {
+        // Alltid synlig högst upp på sidan
+        setShowHeader(true);
+      } else if (currentScrollY > lastScrollY && currentScrollY > 80) {
+        // Skrollar neråt -> göm headern
+        setShowHeader(false);
+      } else if (currentScrollY < lastScrollY) {
+        // Skrollar uppåt -> visa headern direkt
+        setShowHeader(true);
+      }
+
+      setLastScrollY(currentScrollY);
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [lastScrollY]);
 
   return (
     <div className="min-h-screen bg-[#F9F8F5] text-[#090023] flex flex-col font-serif selection:bg-[#FFA8CD] selection:text-[#090023]">
-      {/* 1. HEADER (Mindre och diskretare logo) */}
-      <header className="h-20 bg-[#FFFFFF] border-b border-black/10 px-6 md:px-12 flex items-center justify-between sticky top-0 z-40">
+      {/* 1. SMART HEADER (Glider undan nedåt, glider fram uppåt) */}
+      <header
+        className={`h-20 bg-[#FFFFFF] border-b border-black/10 px-6 md:px-12 flex items-center justify-between fixed top-0 left-0 right-0 z-50 transition-transform duration-300 ease-in-out ${
+          showHeader ? "translate-y-0 shadow-sm" : "-translate-y-full"
+        }`}
+      >
+        {/* LOGO */}
         <Link to="/" className="flex items-center">
           <img src="/logo-header.svg" alt="Motbild" className="h-6 md:h-7 w-auto object-contain" />
         </Link>
@@ -48,7 +78,7 @@ export function SiteLayout({ children }: { children: ReactNode }) {
 
       {/* MOBILMENY */}
       {mobileMenuOpen && (
-        <div className="md:hidden bg-[#090023] text-[#F9F8F5] px-6 py-6 border-b border-white/10 space-y-4 font-sans">
+        <div className="md:hidden bg-[#090023] text-[#F9F8F5] px-6 py-6 border-b border-white/10 space-y-4 font-sans fixed top-20 left-0 right-0 z-40">
           <Link to="/artiklar" onClick={() => setMobileMenuOpen(false)} className="block py-1 hover:text-[#FFA8CD]">
             Artiklar
           </Link>
@@ -61,15 +91,15 @@ export function SiteLayout({ children }: { children: ReactNode }) {
         </div>
       )}
 
-      {/* SIDANS INNEHÅLL */}
-      <main className="flex-1">{children}</main>
+      {/* SIDANS INNEHÅLL (pt-20 så att inte headern täcker översta delen av sidan) */}
+      <main className="flex-1 pt-20">{children}</main>
 
       {/* 2. FOOTER */}
       <footer className="bg-[#090023] text-[#F9F8F5] pt-14 pb-12 border-t border-white/10 font-sans">
         <div className="max-w-5xl mx-auto px-6">
           {/* ÖVRE DEL: MENY, INFORMATION & KONTAKT */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 pb-12 border-b border-white/10">
-            {/* Kolumn 1: Om organisationen */}
+            {/* Kolumn 1 */}
             <div>
               <p className="text-xs text-[#F9F8F5]/70 max-w-sm leading-relaxed mb-4 font-serif">
                 Plattform för självständig prövning, biblisk forskning och öppen teologisk debatt.
@@ -82,7 +112,7 @@ export function SiteLayout({ children }: { children: ReactNode }) {
               </Link>
             </div>
 
-            {/* Kolumn 2: Föreningslänkar */}
+            {/* Kolumn 2 */}
             <div className="space-y-2 text-xs">
               <p className="font-bold uppercase tracking-wider text-white text-[11px] mb-2">Information &amp; Förening</p>
               <p>
@@ -102,7 +132,7 @@ export function SiteLayout({ children }: { children: ReactNode }) {
               </p>
             </div>
 
-            {/* Kolumn 3: Kontaktuppgifter */}
+            {/* Kolumn 3 */}
             <div className="space-y-2 text-xs text-[#F9F8F5]/80 md:text-right">
               <p className="font-bold uppercase tracking-wider text-white text-[11px] mb-2">Kontakt</p>
               <p className="flex md:justify-end items-center gap-2">
@@ -117,7 +147,7 @@ export function SiteLayout({ children }: { children: ReactNode }) {
             </div>
           </div>
 
-          {/* MITTENDEL: ENORM FULLBREDS-LOGO (PLACERAD UNDER MENYN OCH OVANFÖR COPYRIGHT) */}
+          {/* MITTENDEL: ENORM FULLBREDS-LOGO I FOOTERN */}
           <div className="py-12 border-b border-white/10 text-center">
             <Link to="/" className="block w-full" aria-label="Till startsidan">
               <img
@@ -128,7 +158,7 @@ export function SiteLayout({ children }: { children: ReactNode }) {
             </Link>
           </div>
 
-          {/* NEDRE DEL: COPYRIGHT, FÖRENINGEN & SÄTE (SOM PÅ UNIKAST/BOSELEKT) */}
+          {/* NEDRE DEL: COPYRIGHT, FÖRENINGEN & SÄTE */}
           <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#F9F8F5]/60">
             <p>
               © {new Date().getFullYear()} Föreningen Motbild. Säte: Stockholm, Sverige.
