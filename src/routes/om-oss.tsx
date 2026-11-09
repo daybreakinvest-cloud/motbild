@@ -1,6 +1,5 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute } from "@tanstack/react-router";
 import { SiteLayout } from "@/components/SiteLayout";
-import { CheckCircle2, BookOpen, Compass, ShieldCheck } from "lucide-react";
 
 export const Route = createFileRoute("/om-oss")({
   component: OmOssPage,
@@ -12,13 +11,13 @@ function OmOssPage() {
       {/* 1. HERO SECTION */}
       <section className="bg-[#090023] text-[#F9F8F5] py-20 md:py-24 px-6 border-b border-white/10">
         <div className="max-w-4xl mx-auto text-center space-y-5">
-          <div className="inline-block px-3.5 py-1 rounded-full bg-white/10 text-xs font-sans uppercase tracking-widest text-[#FFA8CD]">
+          <div className="inline-block px-3.5 py-1 rounded-full bg-white/10 text-xs font-sans uppercase tracking-widest text-[#F9F8F5]">
             Identitet &amp; Uppdrag
           </div>
-          <h1 className="text-3xl sm:text-5xl font-serif font-normal leading-tight text-white">
+          <h1 className="text-3xl sm:text-5xl font-serif font-normal leading-tight text-[#F9F8F5]">
             Vårt uppdrag och vår tro
           </h1>
-          <p className="text-base sm:text-lg font-serif text-[#F9F8F5]/85 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-base sm:text-lg font-serif text-[#F9F8F5] max-w-2xl mx-auto leading-relaxed">
             På ett bredare plan vill vi uppmuntra till kritiskt tänkande genom utbildning, debatter och samtal.
             Mer specifikt är syftet att lyfta fram ett bibliskt unitariskt perspektiv och ge människor möjlighet
             att kontrastera det mot den traditionella synen på Gud, på ett respektfullt sätt.
@@ -32,8 +31,8 @@ function OmOssPage() {
           <h2 className="text-2xl sm:text-3xl font-serif font-bold text-[#090023]">
             Vår trosgrund
           </h2>
-          <p className="text-sm font-sans text-[#090023]/60 mt-2">
-            Grundad uteslutande i Bibelns egna grundtexter
+          <p className="text-xs font-sans font-semibold uppercase tracking-wider text-[#090023] mt-2">
+            GRUNDAD UTESLUTANDE I BIBELNS EGNA GRUNDTEXTER
           </p>
         </div>
 
@@ -46,7 +45,7 @@ function OmOssPage() {
             <h3 className="text-xl font-serif font-bold text-[#090023] pt-2">
               Den ende sanne Guden
             </h3>
-            <p className="text-sm text-[#090023]/80 leading-relaxed font-serif">
+            <p className="text-sm text-[#090023] leading-relaxed font-serif">
               Vi tror som Kristus att Fadern är den ende sanne Guden (Joh 17:3). Ingen annan är Gud i samma mening som Fadern.
             </p>
           </div>
@@ -59,7 +58,7 @@ function OmOssPage() {
             <h3 className="text-xl font-serif font-bold text-[#090023] pt-2">
               Guds enfödde Son &amp; Messias
             </h3>
-            <p className="text-sm text-[#090023]/80 leading-relaxed font-serif">
+            <p className="text-sm text-[#090023] leading-relaxed font-serif">
               Jesus Kristus är till sin natur en icke-preexistent människa (1 Tim 2:5), född av kvinna och smord till Messias och Herre.
             </p>
           </div>
@@ -72,13 +71,13 @@ function OmOssPage() {
             <h3 className="text-xl font-serif font-bold text-[#090023] pt-2">
               Guds kraft &amp; närvaro
             </h3>
-            <p className="text-sm text-[#090023]/80 leading-relaxed font-serif">
+            <p className="text-sm text-[#090023] leading-relaxed font-serif">
               Den helige Ande är inte en tredje person i en gudom. Begreppet syftar på Faderns egen ande och verksamhet, och ibland på Kristus själv.
             </p>
           </div>
         </div>
 
-        <div className="mt-8 p-6 rounded-2xl bg-[#f3f0ed] border border-black/10 text-center font-serif text-sm text-[#090023]/80">
+        <div className="mt-8 p-6 rounded-2xl bg-[#f3f0ed] border border-black/10 text-center font-serif text-sm text-[#090023]">
           <p>
             Vi tror att Treenighetsläran är en mänsklig konstruktion som utvecklats över tid genom så kallad progressiv uppenbarelse.
             Biblisk unitarisk tro berör fler områden, vilket återspeglas i artiklarna – men vårt uppdrag är koncentrerat till kärnan i tron.
@@ -90,13 +89,13 @@ function OmOssPage() {
       <section className="bg-white py-20 px-6 border-t border-b border-black/10">
         <div className="max-w-4xl mx-auto space-y-12">
           <div>
-            <span className="text-xs font-sans font-bold uppercase tracking-wider text-[#FFA8CD] bg-[#090023] px-3.5 py-1.5 rounded-full inline-block mb-4">
+            <span className="text-xs font-sans font-bold uppercase tracking-wider text-[#F9F8F5] bg-[#090023] px-3.5 py-1.5 rounded-full inline-block mb-4">
               Bakgrund &amp; Erfarenhet
             </span>
             <h2 className="text-2xl sm:text-4xl font-serif font-bold text-[#090023]">
               Var inte en JA-sägare – vägen till frihet
             </h2>
-            <div className="text-base font-serif text-[#090023]/85 space-y-4 mt-6 leading-relaxed">
+            <div className="text-base font-serif text-[#090023] space-y-4 mt-6 leading-relaxed">
               <p>
                 Jag har varit troende i 37 år. Från den dag jag kom till tro hade jag en längtan efter sanningen i Guds Ord.
                 Som flitig bibelstudent krockade mina upptäckter ofta med mitt samfunds traditionella tolkningar.
@@ -128,7 +127,7 @@ function OmOssPage() {
                   <h4 className="font-bold text-base text-[#090023]">
                     Att alltid söka sanningen i Skriften
                   </h4>
-                  <p className="text-sm text-[#090023]/75 mt-1 leading-relaxed">
+                  <p className="text-sm text-[#090023] mt-1 leading-relaxed font-serif">
                     Oavsett samfundstradition och människors åsikter. Det handlar om exegetik och textanalys, men framför allt om att våga ifrågasätta felaktiga slutsatser.
                   </p>
                 </div>
@@ -142,7 +141,7 @@ function OmOssPage() {
                   <h4 className="font-bold text-base text-[#090023]">
                     Att aldrig komma till Skriften med en förutfattad mening
                   </h4>
-                  <p className="text-sm text-[#090023]/75 mt-1 leading-relaxed">
+                  <p className="text-sm text-[#090023] mt-1 leading-relaxed font-serif">
                     Att stå fri från fördomsbekräftelse, selektiv perception och kognitiv dissonans.
                   </p>
                 </div>
@@ -156,7 +155,7 @@ function OmOssPage() {
                   <h4 className="font-bold text-base text-[#090023]">
                     Att alltid hålla Skriftens sanning som högsta auktoritet
                   </h4>
-                  <p className="text-sm text-[#090023]/75 mt-1 leading-relaxed">
+                  <p className="text-sm text-[#090023] mt-1 leading-relaxed font-serif">
                     Det spelar ingen roll vad traditioner och teologer säger om det inte stämmer med Skriften.
                   </p>
                 </div>
@@ -170,7 +169,7 @@ function OmOssPage() {
                   <h4 className="font-bold text-base text-[#090023]">
                     Att alltid och i varje sammanhang stå upp för och dela sanningen
                   </h4>
-                  <p className="text-sm text-[#090023]/75 mt-1 leading-relaxed">
+                  <p className="text-sm text-[#090023] mt-1 leading-relaxed font-serif">
                     Ibland gör sanningen ont, men i förlängningen är den det enda som befriar.
                   </p>
                 </div>
