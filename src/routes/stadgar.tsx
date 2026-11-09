@@ -1,6 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { SiteLayout } from "@/components/SiteLayout";
-import { ShieldCheck } from "lucide-react";
 
 export const Route = createFileRoute("/stadgar")({
   component: StadgarPage,
@@ -107,13 +106,13 @@ function StadgarPage() {
       {/* 1. HERO SECTION */}
       <section className="bg-[#090023] text-[#F9F8F5] py-20 md:py-24 px-6 border-b border-white/10 text-center">
         <div className="max-w-4xl mx-auto space-y-4">
-          <div className="inline-block px-3.5 py-1 rounded-full bg-white/10 text-xs font-sans uppercase tracking-widest text-[#FFA8CD]">
+          <div className="inline-block px-3.5 py-1 rounded-full bg-white/10 text-xs font-sans uppercase tracking-widest text-[#F9F8F5]">
             Officiella Föreningsstadgar
           </div>
-          <h1 className="text-3xl sm:text-5xl font-serif font-normal leading-tight text-white">
+          <h1 className="text-3xl sm:text-5xl font-serif font-normal leading-tight text-[#F9F8F5]">
             Stadgar för Motbild
           </h1>
-          <p className="text-sm sm:text-base font-serif text-[#F9F8F5]/75 max-w-xl mx-auto leading-relaxed">
+          <p className="text-sm sm:text-base font-serif text-[#F9F8F5] max-w-xl mx-auto leading-relaxed">
             Motbild – Bibliskt Unitariskt Nätverk (Säte: Stockholm)
           </p>
         </div>
@@ -132,7 +131,7 @@ function StadgarPage() {
                   {s.titel}
                 </h2>
               </div>
-              <div className="pl-10 space-y-2 text-sm sm:text-base font-serif text-[#090023]/85 leading-relaxed">
+              <div className="pl-10 space-y-2 text-sm sm:text-base font-serif text-[#090023] leading-relaxed">
                 {s.innehall.map((stycke, i) => (
                   <p key={i}>{stycke}</p>
                 ))}
