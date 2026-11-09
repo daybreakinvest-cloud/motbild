@@ -3,7 +3,7 @@
 
 @theme inline {
   --font-serif: "Book Antiqua", Palatino, "Palatino Linotype", "Palatino LT STD", Georgia, serif;
-  --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-sans: "Inter Tight", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 
   --color-ink: #090023;
   --color-canvas: #F9F8F5;
