@@ -153,11 +153,6 @@ export function SiteLayout({ children }: { children: ReactNode }) {
           {/* Centrerad Copyright med organisationsnummer */}
           <div className="pt-8 text-center text-xs text-[#F9F8F5]">
             <p>
-              © {new Date().getFullYear()} Föreningen Motbild. Org.nr: 802549-0123 (ersätt med ert exakta org.nr). Säte: Stockholm, Sverige.
+              © {new Date().getFullYear()} Föreningen Motbild. Säte: Stockholm, Sverige. Alla rättigheter förbehållna. Kavaljersstigen 16, 165 57 Hässelby. Organisationsnummer: 802557-3059
             </p>
           </div>
-        </div>
-      </footer>
-    </div>
-  );
-}
