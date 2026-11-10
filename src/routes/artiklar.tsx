@@ -192,10 +192,6 @@ function ArtiklarPage() {
               className="w-full h-12 pl-12 pr-4 bg-white text-[#090023] rounded-2xl text-xs font-medium outline-none shadow-sm focus:ring-2 focus:ring-[#090023]"
             />
           </div>
-
-          <div className="text-[11px] uppercase tracking-wider text-[#F9F8F5]">
-            Populära sökord: <span className="font-semibold text-[#F9F8F5]">Johannes 1, Logos, Preexistens, Fadern, 1 Tim 2:5</span>
-          </div>
         </div>
       </section>
 
