@@ -103,43 +103,45 @@ const STADGAR = [
 function StadgarPage() {
   return (
     <SiteLayout>
-      {/* 1. HERO SECTION */}
-      <section className="bg-[#090023] text-[#F9F8F5] py-20 md:py-24 px-6 border-b border-white/10 text-center">
-        <div className="max-w-4xl mx-auto space-y-4">
-          <div className="inline-block px-3.5 py-1 rounded-full bg-white/10 text-xs font-sans uppercase tracking-widest text-[#F9F8F5]">
-            Officiella Föreningsstadgar
-          </div>
-          <h1 className="text-3xl sm:text-5xl font-serif font-normal leading-tight text-[#F9F8F5]">
-            Stadgar för Motbild
-          </h1>
-          <p className="text-sm sm:text-base font-serif text-[#F9F8F5] max-w-xl mx-auto leading-relaxed">
-            Motbild – Bibliskt Unitariskt Nätverk (Säte: Stockholm)
-          </p>
-        </div>
-      </section>
-
-      {/* 2. STADGETEXT */}
-      <section className="py-20 px-6 max-w-4xl mx-auto">
-        <div className="bg-white border border-black/10 rounded-3xl p-8 sm:p-12 shadow-sm space-y-10">
-          {STADGAR.map((s) => (
-            <div key={s.nummer} className="border-b border-black/10 pb-8 last:border-b-0 last:pb-0 space-y-3">
-              <div className="flex items-baseline gap-3">
-                <span className="font-sans font-bold text-sm text-[#090023] bg-[#f3f0ed] size-7 rounded-full flex items-center justify-center shrink-0 border border-black/10">
-                  {s.nummer}
-                </span>
-                <h2 className="text-xl sm:text-2xl font-serif font-bold text-[#090023]">
-                  {s.titel}
-                </h2>
-              </div>
-              <div className="pl-10 space-y-2 text-sm sm:text-base font-serif text-[#090023] leading-relaxed">
-                {s.innehall.map((stycke, i) => (
-                  <p key={i}>{stycke}</p>
-                ))}
-              </div>
+      <div className="bg-[#090023] text-[#F9F8F5] min-h-screen font-serif">
+        {/* 1. HERO SECTION */}
+        <section className="py-20 md:py-24 px-6 border-b border-white/10 text-center">
+          <div className="max-w-4xl mx-auto space-y-4">
+            <div className="inline-block px-4 py-1.5 rounded-full border border-white/20 text-xs uppercase tracking-widest text-[#F9F8F5]">
+              Officiella Föreningsstadgar
             </div>
-          ))}
-        </div>
-      </section>
+            <h1 className="text-3xl sm:text-5xl font-normal leading-tight text-[#F9F8F5]">
+              Stadgar för Motbild
+            </h1>
+            <p className="text-sm sm:text-base text-[#F9F8F5] max-w-xl mx-auto leading-relaxed">
+              Motbild – Bibliskt Unitariskt Nätverk (Säte: Stockholm)
+            </p>
+          </div>
+        </section>
+
+        {/* 2. STADGETEXT (Blåsvart kort med offwhite text och tunna ramar) */}
+        <section className="py-20 px-6 max-w-4xl mx-auto">
+          <div className="bg-[#090023] border border-white/15 rounded-3xl p-8 sm:p-12 shadow-2xl space-y-10">
+            {STADGAR.map((s) => (
+              <div key={s.nummer} className="border-b border-white/10 pb-8 last:border-b-0 last:pb-0 space-y-3">
+                <div className="flex items-baseline gap-3">
+                  <span className="font-bold text-sm text-[#090023] bg-[#F9F8F5] size-7 rounded-full flex items-center justify-center shrink-0">
+                    {s.nummer}
+                  </span>
+                  <h2 className="text-xl sm:text-2xl font-bold text-[#F9F8F5]">
+                    {s.titel}
+                  </h2>
+                </div>
+                <div className="pl-10 space-y-2 text-sm sm:text-base text-[#F9F8F5] leading-relaxed">
+                  {s.innehall.map((stycke, i) => (
+                    <p key={i}>{stycke}</p>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+      </div>
     </SiteLayout>
   );
 }
