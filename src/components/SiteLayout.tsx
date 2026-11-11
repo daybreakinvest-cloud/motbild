@@ -28,9 +28,9 @@ export function SiteLayout({ children }: { children: ReactNode }) {
 
   return (
     <div className="min-h-screen bg-[#F9F8F5] text-[#090023] flex flex-col font-serif selection:bg-[#FFA8CD] selection:text-[#090023]">
-      {/* 1. HEADER (Offwhite med logotyp och Artiklar samlade till vänster) */}
+      {/* 1. HEADER (Kritvit bakgrund för skarp kontrast) */}
       <header
-        className={`h-20 bg-[#F9F8F5] border-b border-black/10 px-6 md:px-12 flex items-center justify-between fixed top-0 left-0 right-0 z-50 transition-transform duration-300 ease-in-out ${
+        className={`h-20 bg-[#FFFFFF] border-b border-black/10 px-6 md:px-12 flex items-center justify-between fixed top-0 left-0 right-0 z-50 transition-transform duration-300 ease-in-out ${
           showHeader ? "translate-y-0 shadow-sm" : "-translate-y-full"
         }`}
       >
