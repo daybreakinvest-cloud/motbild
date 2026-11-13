@@ -426,17 +426,17 @@ const [visaOmOssModal, setVisaOmOssModal] = useState(false);
           <section className="py-12 px-6 max-w-6xl mx-auto font-serif space-y-12">
             {/* DIN FÖRTEX (ORDAGRANT ENLIGT DINA FYRA STYCKEN) */}
             <div className="bg-white border border-black/10 rounded-3xl p-8 sm:p-10 shadow-xs space-y-4 text-base leading-relaxed text-[#090023]">
-              <p>
-                Artiklarna utgår från ett bibliskt unitariskt perspektiv (
+             <p>
+  Artiklarna utgår från ett bibliskt unitariskt perspektiv (
   <button
     type="button"
     onClick={() => setVisaOmOssModal(true)}
-    className="underline font-semibold cursor-pointer hover:opacity-75"
+    className="underline cursor-pointer hover:opacity-75"
   >
-    se ”Om oss”
+    här
   </button>
-) och syftar till sakligt sanningssökande: självständig bibelforskning, språklig exegetik och källkritisk analys fri från kyrkotraditionens förutfattade meningar.
-              </p>
+  ) och syftar till sakligt sanningssökande: självständig bibelforskning, språklig exegetik och källkritisk analys fri från kyrkotraditionens förutfattade meningar.
+</p>
               <p>
                 Kritik av metod, texttrohet, logik och grundtextreferenser är välkommen. Att enbart hänvisa till annan samfundstradition eller dogmatiska formler tillför inget och beaktas inte.
               </p>
