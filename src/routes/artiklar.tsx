@@ -105,7 +105,7 @@ function ArtiklarPage() {
 
   // Popup för uppskattning / gåva
   const [visaDonationModal, setVisaDonationModal] = useState(false);
-
+const [visaOmOssModal, setVisaOmOssModal] = useState(false);
   function togglaNod(id: string) {
     setOppnadeNoder((prev) =>
       prev.includes(id) ? prev.filter((n) => n !== id) : [...prev, id]
