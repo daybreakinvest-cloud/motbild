@@ -412,12 +412,12 @@ function ArtiklarPage() {
             <div className="max-w-4xl mx-auto space-y-6 text-center">
               {/* Stor rubrik: gemener */}
               <h1 className="text-3xl sm:text-5xl font-normal text-[#F9F8F5]">
-                Bibliskt perspektiv som utmanar och klargör
+                Bibliskt perspektiv som utmanar och befriar
               </h1>
 
               {/* Hook / underrubrik: VERSALER */}
               <p className="text-xs sm:text-sm uppercase tracking-wider text-[#F9F8F5] max-w-2xl mx-auto leading-relaxed pt-1">
-                FÖR DEN SOM VÅGAR MÖTA GRUNDTEXTEN UTAN FÖRUTFATTADE MENINGAR – DÄR MOTIVERAT TÄNKANDE OCH SELEKTIV PERCEPTION FÅR GE VIKA FÖR SKRIFTENS EGEN RÖST, OCH DÄR DEN KOGNITIVA DISSONANSEN FÖRVANDLAS TILL INTELLEKTUELL OCH ANDLIG FRIHET.
+                FÖR DEN SOM VÅGAR MÖTA SKRIFTEN UTAN MOTIVERAT TÄNKANDE, FÖRDOMSBEKRÄFTELSE OCH SELEKTIV PERCEPTION – DÄR KOGNITIV DISSONANS FÖRVANDLAS TILL INTELLEKTUELL OCH ANDLIG KLARHET.
               </p>
             </div>
           </section>
