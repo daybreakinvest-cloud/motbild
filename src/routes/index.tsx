@@ -14,10 +14,10 @@ function IndexPage() {
         {/* Bakgrundsbild låst i nederkant så att fötterna och marken syns */}
         <div className="absolute inset-0 z-0">
           <img
-            src="/hero-debatt.png"
-            alt="Motbild debatt"
-            className="w-full h-full object-cover object-bottom"
-          />
+  src="/hero-debatt.png"
+  alt="Motbild debatt"
+  className="w-full h-full object-cover object-[left_22%] scale-95"
+/>
           {/* Mörkare toning till höger för maximal läsbarhet */}
           <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#090023]/60 to-[#090023]/95" />
         </div>
