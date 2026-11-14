@@ -416,9 +416,9 @@ const [visaOmOssModal, setVisaOmOssModal] = useState(false);
               </h1>
 
               {/* Hook / underrubrik: VERSALER */}
-              <p className="text-xs sm:text-sm uppercase tracking-wider text-[#F9F8F5] max-w-2xl mx-auto leading-relaxed pt-1">
-                FÖR DEN SOM VÅGAR MÖTA SKRIFTEN UTAN MOTIVERAT TÄNKANDE, FÖRDOMSBEKRÄFTELSE OCH SELEKTIV PERCEPTION – DÄR KOGNITIV DISSONANS FÖRVANDLAS TILL INTELLEKTUELL OCH ANDLIG KLARHET.
-              </p>
+              <p className="text-base sm:text-lg text-[#F9F8F5] max-w-2xl mx-auto leading-relaxed pt-2 font-serif">
+  För den som vågar möta Skriften utan motiverat tänkande, fördomsbekräftelse och selektiv perception – där kognitiv dissonans förvandlas till intellektuell och andlig klarhet.
+</p>
             </div>
           </section>
 
