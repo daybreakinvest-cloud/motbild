@@ -5,7 +5,7 @@ import { ArrowRight, BookOpen, Compass, Lightbulb } from "lucide-react";
 export const Route = createFileRoute("/")({
   component: IndexPage,
 });
-
+<h1 className="text-3xl sm:text-4xl md:text-5xl font-serif font-bold text-[#F9F8F5] leading-tight">
 function IndexPage() {
   return (
     <SiteLayout>
