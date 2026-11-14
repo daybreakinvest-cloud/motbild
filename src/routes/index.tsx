@@ -14,13 +14,12 @@ function IndexPage() {
         <div className="max-w-4xl mx-auto text-center space-y-6">
           {/* STOR RUBRIK: GEMENER */}
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-normal leading-tight text-[#F9F8F5] max-w-3xl mx-auto">
-            Om inte sanningen gömmer sig för oss, behöver inte vi gömma oss för sanningen
+            Ge din tillbedjan värde, och låt din själ befrias genom kompromisslös lydnad för Kristi ord om Fadern
           </h1>
 
           {/* MINDRE TEXT / HOOK DIREKT UNDER: VERSALER */}
           <p className="text-xs sm:text-sm uppercase tracking-wider text-[#F9F8F5] max-w-2xl mx-auto leading-relaxed pt-2">
-            Kyrkan har i två tusen år dikterat vad vi ska tro om Gud. De flesta ifrågasätter aldrig.
-            Inte för att de undersökt och fått det bekräftat – utan för att ingen utmanat dem att tänka kritiskt.
+            Låt inte Kyrkans traditioner diktera vad du ska tro om Gud. Betala priset, gå mot strömmen. Det smakar mer än det kostar
           </p>
         </div>
       </section>
