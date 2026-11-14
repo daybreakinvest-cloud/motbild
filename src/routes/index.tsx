@@ -9,18 +9,32 @@ export const Route = createFileRoute("/")({
 function IndexPage() {
   return (
     <SiteLayout>
-      {/* 1. HERO SECTION */}
-      <section className="bg-[#090023] text-[#F9F8F5] py-24 md:py-32 px-6 font-serif">
-        <div className="max-w-4xl mx-auto text-center space-y-6">
-          {/* STOR RUBRIK: GEMENER */}
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-normal leading-tight text-[#F9F8F5] max-w-3xl mx-auto">
-            Ge din tillbedjan värde, och låt din själ befrias genom kompromisslös lydnad för Kristi ord om Fadern
-          </h1>
+      {/* 1. HERO SECTION MED BAKGRUNDSBILD OCH TEXT TILL HÖGER */}
+      <section className="relative min-h-[580px] md:min-h-[680px] flex items-center bg-[#090023] border-b border-white/10 overflow-hidden">
+        {/* Bakgrundsbild */}
+        <div className="absolute inset-0 z-0">
+          <img
+            src="/hero-debatt.png"
+            alt="Motbild debatt"
+            className="w-full h-full object-cover object-left md:object-center"
+          />
+          {/* Mörk toning som förstärker svärtan på höger sida så texten syns knivskarpt */}
+          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#090023]/60 to-[#090023]/95" />
+        </div>
 
-          {/* MINDRE TEXT / HOOK DIREKT UNDER: VERSALER */}
-          <p className="text-xs sm:text-sm uppercase tracking-wider text-[#F9F8F5] max-w-2xl mx-auto leading-relaxed pt-2">
-            Låt inte Kyrkans traditioner diktera vad du ska tro om Gud. Betala priset, gå mot strömmen. Det smakar mer än det kostar
-          </p>
+        {/* Textblock placerat över den mörka högra sidan */}
+        <div className="relative z-10 max-w-6xl mx-auto px-6 w-full py-16 flex justify-end">
+          <div className="w-full md:w-7/12 lg:w-1/2 space-y-6 text-left">
+            {/* Huvudrubrik */}
+            <h1 className="text-2xl sm:text-3xl md:text-4xl font-serif font-bold text-[#F9F8F5] leading-snug">
+              Ge din tillbedjan värde, och låt din själ befrias genom kompromisslös lydnad för Kristi ord om Fadern
+            </h1>
+
+            {/* Underrubrik med samma feta stil */}
+            <h2 className="text-xl sm:text-2xl md:text-3xl font-serif font-bold text-[#F9F8F5] leading-snug">
+              Låt inte Kyrkans traditioner diktera vad du ska tro om Gud. Betala priset, gå mot strömmen. Det smakar mer än det kostar.
+            </h2>
+          </div>
         </div>
       </section>
 
