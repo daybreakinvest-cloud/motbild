@@ -13,7 +13,7 @@ function IndexPage() {
       <section className="w-full bg-[#090023] border-b border-white/10 py-20 md:py-28 px-6">
         <div className="max-w-4xl mx-auto text-center space-y-6">
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-serif font-bold text-[#F9F8F5] leading-tight">
-            Ge din tillbedjan värde, och låt din själ befrias genom kompromisslös lydnad för Kristi ord om Fadern
+            Ge din tillbedjan värde och låt din själ befrias genom kompromisslös lydnad för Kristi ord om Fadern
           </h1>
 
           <p className="max-w-2xl mx-auto text-base sm:text-lg font-serif text-[#F9F8F5]/90 leading-relaxed">
