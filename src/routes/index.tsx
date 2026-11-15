@@ -16,7 +16,7 @@ function IndexPage() {
             Ge din tillbedjan värde och låt din själ befrias genom kompromisslös lydnad för Kristi ord om Fadern
           </h1>
 
-          <p className="max-w-2xl mx-auto text-base sm:text-lg font-serif text-[#F9F8F5]/90 leading-relaxed">
+          <p className="max-w-2xl mx-auto text-lg sm:text-xl font-serif text-[#F9F8F5]/90 leading-relaxed">
             Låt inte Kyrkans traditioner diktera vad du ska tro om Gud. Betala priset, gå mot strömmen. Det smakar mer än det kostar.
           </p>
         </div>
