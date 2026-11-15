@@ -82,10 +82,10 @@ export function SiteLayout({ children }: { children: ReactNode }) {
         <div className="max-w-6xl mx-auto px-6">
           {/* FYRA KOLUMNER */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 pb-12 border-b border-white/10">
-            {/* Kolumn 1: Utbildning & Debatt */}
+            {/* Kolumn 1: Utbildning */}
             <div className="space-y-2.5 text-xs">
               <p className="font-serif font-bold uppercase tracking-wider text-[#F9F8F5] text-[11px] mb-3">
-                Utbildning &amp; Debatt
+                Utbildning
               </p>
               <p>
                 <Link to="/artiklar" className="text-[#F9F8F5] hover:underline">
@@ -104,10 +104,10 @@ export function SiteLayout({ children }: { children: ReactNode }) {
               </p>
             </div>
 
-            {/* Kolumn 2: Nätverket */}
+            {/* Kolumn 2: Nätverk */}
             <div className="space-y-2.5 text-xs">
               <p className="font-serif font-bold uppercase tracking-wider text-[#F9F8F5] text-[11px] mb-3">
-                Nätverket
+                Nätverk
               </p>
               <p>
                 <Link to="/om-oss" className="text-[#F9F8F5] hover:underline">
