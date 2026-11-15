@@ -29,10 +29,10 @@ function IndexPage() {
             <div className="size-10 rounded-xl bg-[#f3f0ed] text-[#090023] flex items-center justify-center mb-4">
               <BookOpen className="size-5" />
             </div>
-            <h3 className="text-lg sm:text-xl font-bold text-[#090023]">
+            <h3 className="text-xl sm:text-2xl font-bold text-[#090023]">
               Välgrundade artiklar med akademiskt djup
             </h3>
-            <p className="text-sm text-[#090023] leading-relaxed">
+            <p className="text-lg text-[#090023] leading-relaxed">
               Noggrann research med referenser till grundtexter och akademiska källor.
             </p>
           </div>
@@ -44,7 +44,7 @@ function IndexPage() {
             <h3 className="text-lg sm:text-xl font-bold text-[#090023]">
               Perspektiv som öppnar nya dörrar
             </h3>
-            <p className="text-sm text-[#090023] leading-relaxed">
+            <p className="text-lg text-[#090023] leading-relaxed">
               En alternativ synvinkel – utmanande och befriande för den som vågar följa tanken hela vägen.
             </p>
           </div>
@@ -56,7 +56,7 @@ function IndexPage() {
             <h3 className="text-lg sm:text-xl font-bold text-[#090023]">
               Slutsatser som förändrar hur du läser Bibeln
             </h3>
-            <p className="text-sm text-[#090023] leading-relaxed">
+            <p className="text-lg text-[#090023] leading-relaxed">
               Välgrundade slutledningar utmanar det du tagit för givet.
             </p>
           </div>
