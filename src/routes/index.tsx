@@ -5,36 +5,20 @@ import { ArrowRight, BookOpen, Compass, Lightbulb } from "lucide-react";
 export const Route = createFileRoute("/")({
   component: IndexPage,
 });
-<h1 className="text-3xl sm:text-4xl md:text-5xl font-serif font-bold text-[#F9F8F5] leading-tight">
+
 function IndexPage() {
   return (
     <SiteLayout>
-      {/* 1. HERO SECTION */}
-      <section className="relative w-full min-h-[560px] md:min-h-[640px] flex items-center bg-[#090023] border-b border-white/10 overflow-hidden py-12 md:py-16">
-        {/* Bakgrundsbild med hela Jesus synlig */}
-        <div className="absolute inset-0 z-0">
-          <img
-            src="/hero-debatt.png"
-            alt="Motbild debatt"
-            className="w-full h-full object-cover object-left"
-          />
-          {/* Mörkare gradient mot höger så texten har full kontrast */}
-          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#090023]/70 to-[#090023]/95" />
-        </div>
+      {/* 1. HERO SECTION (BILDLÖS, CENTRERAD) */}
+      <section className="w-full bg-[#090023] border-b border-white/10 py-20 md:py-28 px-6">
+        <div className="max-w-4xl mx-auto text-center space-y-6">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-serif font-bold text-[#F9F8F5] leading-tight">
+            Ge din tillbedjan värde, och låt din själ befrias genom kompromisslös lydnad för Kristi ord om Fadern
+          </h1>
 
-        {/* Texten till höger med samma storlek som på Artiklar */}
-        <div className="relative z-10 max-w-6xl mx-auto px-6 w-full flex justify-end">
-          <div className="w-full md:w-3/5 lg:w-1/2 space-y-6 text-left">
-            {/* Huvudrubrik (samma storlek som på Artiklar) */}
-            <h1 className="text-3xl sm:text-4xl font-serif font-bold text-[#F9F8F5] leading-tight">
-              Ge din tillbedjan värde, och låt din själ befrias genom kompromisslös lydnad för Kristi ord om Fadern
-            </h1>
-
-            {/* Underrubrik */}
-            <h2 className="text-base sm:text-lg font-serif font-bold text-[#F9F8F5] leading-relaxed">
-              Låt inte Kyrkans traditioner diktera vad du ska tro om Gud. Betala priset, gå mot strömmen. Det smakar mer än det kostar.
-            </h2>
-          </div>
+          <p className="max-w-2xl mx-auto text-base sm:text-lg font-serif text-[#F9F8F5]/90 leading-relaxed">
+            Låt inte Kyrkans traditioner diktera vad du ska tro om Gud. Betala priset, gå mot strömmen. Det smakar mer än det kostar.
+          </p>
         </div>
       </section>
 
