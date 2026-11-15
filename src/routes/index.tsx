@@ -16,7 +16,7 @@ function IndexPage() {
             Ge din tillbedjan värde och låt din själ befrias genom kompromisslös lydnad för Kristi ord om Fadern
           </h1>
 
-          <p className="max-w-2xl mx-auto text-lg sm:text-xl font-serif text-[#F9F8F5]/90 leading-relaxed">
+          <p className="max-w-2xl mx-auto text-xl sm:text-2xl font-serif text-[#F9F8F5]/90 leading-relaxed">
             Låt inte Kyrkans traditioner diktera vad du ska tro om Gud. Betala priset, gå mot strömmen. Det smakar mer än det kostar.
           </p>
         </div>
@@ -32,7 +32,7 @@ function IndexPage() {
             <h3 className="text-xl sm:text-2xl font-bold text-[#090023]">
               Välgrundade artiklar med akademiskt djup
             </h3>
-            <p className="text-lg text-[#090023] leading-relaxed">
+            <p className="text-base text-[#090023] leading-relaxed">
               Noggrann research med referenser till grundtexter och akademiska källor.
             </p>
           </div>
@@ -44,7 +44,7 @@ function IndexPage() {
             <h3 className="text-xl sm:text-2xl font-bold text-[#090023]">
               Perspektiv som öppnar nya dörrar
             </h3>
-            <p className="text-lg text-[#090023] leading-relaxed">
+            <p className="text-base text-[#090023] leading-relaxed">
               En alternativ synvinkel – utmanande och befriande för den som vågar följa tanken hela vägen.
             </p>
           </div>
@@ -56,7 +56,7 @@ function IndexPage() {
             <h3 className="text-xl sm:text-2xl font-bold text-[#090023]">
               Slutsatser som förändrar hur du läser Bibeln
             </h3>
-            <p className="text-lg text-[#090023] leading-relaxed">
+            <p className="text-base text-[#090023] leading-relaxed">
               Välgrundade slutledningar utmanar det du tagit för givet.
             </p>
           </div>
