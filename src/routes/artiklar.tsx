@@ -105,7 +105,8 @@ function ArtiklarPage() {
 
   // Popup för uppskattning / gåva
   const [visaDonationModal, setVisaDonationModal] = useState(false);
-const [visaOmOssModal, setVisaOmOssModal] = useState(false);
+  const [visaOmOssModal, setVisaOmOssModal] = useState(false);
+
   function togglaNod(id: string) {
     setOppnadeNoder((prev) =>
       prev.includes(id) ? prev.filter((n) => n !== id) : [...prev, id]
@@ -196,9 +197,9 @@ const [visaOmOssModal, setVisaOmOssModal] = useState(false);
           </div>
 
           <article className="space-y-8">
-            {/* Titel & Byline (Klassiska gemener) */}
+            {/* Titel & Byline */}
             <div>
-              <h1 className="text-3xl sm:text-5xl font-bold text-[#090023] leading-tight">
+              <h1 className="text-4xl sm:text-4xl md:text-5xl font-bold text-[#090023] leading-tight">
                 {aktivArtikel.titel}
               </h1>
               <div className="flex flex-wrap items-center gap-4 text-xs text-[#090023] mt-4 pt-3 border-t border-black/10">
@@ -209,28 +210,28 @@ const [visaOmOssModal, setVisaOmOssModal] = useState(false);
             </div>
 
             {/* Ingress */}
-            <div className="text-base sm:text-lg italic text-[#090023] bg-[#f3f0ed] p-6 rounded-2xl border-l-4 border-[#090023] leading-relaxed">
+            <div className="text-lg italic text-[#090023] bg-[#f3f0ed] p-6 rounded-2xl border-l-4 border-[#090023] leading-relaxed">
               {aktivArtikel.ingress}
             </div>
 
             {/* Chicagomodell: Akademiska rubriker i gemener */}
             <div className="space-y-3">
-              <h2 className="text-xl font-bold text-[#090023]">Sammanfattning</h2>
+              <h2 className="text-3xl sm:text-4xl font-bold text-[#090023]">Sammanfattning</h2>
               <p className="text-base leading-relaxed text-[#090023]">{aktivArtikel.sammanfattning}</p>
             </div>
 
             <div className="space-y-3">
-              <h2 className="text-xl font-bold text-[#090023]">Problemformulering</h2>
+              <h2 className="text-3xl sm:text-4xl font-bold text-[#090023]">Problemformulering</h2>
               <p className="text-base leading-relaxed text-[#090023]">{aktivArtikel.problemformulering}</p>
             </div>
 
             <div className="space-y-3">
-              <h2 className="text-xl font-bold text-[#090023]">Text och kontext</h2>
+              <h2 className="text-3xl sm:text-4xl font-bold text-[#090023]">Text och kontext</h2>
               <p className="text-base leading-relaxed text-[#090023]">{aktivArtikel.textOchKontext}</p>
             </div>
 
             <div className="space-y-3">
-              <h2 className="text-xl font-bold text-[#090023]">Språklig och exegetisk analys</h2>
+              <h2 className="text-3xl sm:text-4xl font-bold text-[#090023]">Språklig och exegetisk analys</h2>
               <p className="text-base leading-relaxed text-[#090023]">
                 {aktivArtikel.exegetiskAnalys}
                 <sup className="text-xs font-bold text-[#F9F8F5] bg-[#090023] px-1 rounded ml-1 cursor-pointer">[1]</sup>
@@ -238,25 +239,25 @@ const [visaOmOssModal, setVisaOmOssModal] = useState(false);
             </div>
 
             <div className="space-y-3">
-              <h2 className="text-xl font-bold text-[#090023]">Teologisk analys</h2>
+              <h2 className="text-3xl sm:text-4xl font-bold text-[#090023]">Teologisk analys</h2>
               <p className="text-base leading-relaxed text-[#090023]">{aktivArtikel.teologiskAnalys}</p>
             </div>
 
             <div className="space-y-3 border-t border-black/10 pt-4">
-              <h2 className="text-xl font-bold text-[#090023]">Slutsats</h2>
+              <h2 className="text-3xl sm:text-4xl font-bold text-[#090023]">Slutsats</h2>
               <p className="text-base leading-relaxed text-[#090023]">{aktivArtikel.slutsats}</p>
             </div>
 
             {/* Fotnoter & Källor (Chicago) */}
             <div className="border-t border-black/10 pt-8 space-y-5 text-sm text-[#090023]">
-              <h3 className="font-bold uppercase tracking-wider text-xs text-[#090023]">Fotnoter &amp; Källor (Chicago)</h3>
+              <h3 className="text-xl font-bold text-[#090023]">Fotnoter &amp; källor (Chicago)</h3>
               <ol className="list-decimal list-inside space-y-1.5 pl-2">
                 {aktivArtikel.fotnoter.map((fn: any) => (
                   <li key={fn.nr}>{fn.text}</li>
                 ))}
               </ol>
 
-              <h3 className="font-bold uppercase tracking-wider text-xs text-[#090023] pt-4">Litteraturförteckning</h3>
+              <h3 className="text-xl font-bold text-[#090023] pt-4">Litteraturförteckning</h3>
               <ul className="list-disc list-inside space-y-1.5 pl-2">
                 {aktivArtikel.referenser.map((ref: string, i: number) => (
                   <li key={i}>{ref}</li>
@@ -270,19 +271,19 @@ const [visaOmOssModal, setVisaOmOssModal] = useState(false);
                 PA
               </div>
               <div>
-                <h4 className="font-bold text-base text-[#090023]">{aktivArtikel.forfattare}</h4>
-                <p className="text-xs text-[#090023] mt-0.5">Bibellärare, skribent och debattör.</p>
+                <h4 className="font-bold text-lg sm:text-xl text-[#090023]">{aktivArtikel.forfattare}</h4>
+                <p className="text-base text-[#090023] mt-0.5">Bibellärare, skribent och debattör.</p>
               </div>
             </div>
 
             {/* BETYGSÄTTNING (1–5) OCH OMDÖME */}
             <div className="bg-white border border-black/10 rounded-2xl p-6 sm:p-8 space-y-4 shadow-xs mt-10">
-              <h3 className="text-lg font-bold text-[#090023]">
+              <h3 className="text-xl sm:text-2xl font-bold text-[#090023]">
                 Vad tyckte du om artikelns akademiska kvalitet?
               </h3>
-              
+
               {omdomeSkickat ? (
-                <div className="p-4 bg-[#f3f0ed] rounded-xl text-sm text-[#090023] font-semibold">
+                <div className="p-4 bg-[#f3f0ed] rounded-xl text-base text-[#090023] font-semibold">
                   Tack för ditt omdöme och ditt betyg!
                 </div>
               ) : (
@@ -375,10 +376,10 @@ const [visaOmOssModal, setVisaOmOssModal] = useState(false);
                   <span className="text-xs font-bold uppercase tracking-widest text-[#090023] bg-[#f3f0ed] px-3 py-1 rounded-full inline-block">
                     FORSKNINGSSTÖD
                   </span>
-                  <h3 className="text-2xl font-bold text-[#090023]">
+                  <h3 className="text-xl sm:text-2xl font-bold text-[#090023]">
                     Visa din uppskattning
                   </h3>
-                  <p className="text-sm text-[#090023] leading-relaxed">
+                  <p className="text-base text-[#090023] leading-relaxed">
                     Varje artikel kräver tiotals timmars självständig bibelforskning och exegetik. Ett personligt bidrag möjliggör fortsatt fördjupning och skrivande.
                   </p>
                 </div>
@@ -410,15 +411,13 @@ const [visaOmOssModal, setVisaOmOssModal] = useState(false);
           {/* HERO SECTION */}
           <section className="bg-[#090023] text-[#F9F8F5] py-20 px-6 border-b border-white/10 font-serif">
             <div className="max-w-4xl mx-auto space-y-6 text-center">
-              {/* Stor rubrik: gemener */}
-              <h1 className="text-3xl sm:text-5xl font-normal text-[#F9F8F5]">
+              <h1 className="text-4xl sm:text-4xl md:text-5xl font-bold leading-tight text-[#F9F8F5]">
                 Bibliskt perspektiv som utmanar och befriar
               </h1>
 
-              {/* Hook / underrubrik: VERSALER */}
-              <p className="text-base sm:text-lg text-[#F9F8F5] max-w-2xl mx-auto leading-relaxed pt-2 font-serif">
-  För den som vågar möta Skriften utan motiverat tänkande, fördomsbekräftelse och selektiv perception – där kognitiv dissonans förvandlas till intellektuell och andlig klarhet.
-</p>
+              <p className="text-xl sm:text-2xl text-[#F9F8F5] max-w-2xl mx-auto leading-relaxed pt-2 font-serif">
+                För den som vågar möta Skriften utan motiverat tänkande, fördomsbekräftelse och selektiv perception – där kognitiv dissonans förvandlas till intellektuell och andlig klarhet.
+              </p>
             </div>
           </section>
 
@@ -426,17 +425,17 @@ const [visaOmOssModal, setVisaOmOssModal] = useState(false);
           <section className="py-12 px-6 max-w-6xl mx-auto font-serif space-y-12">
             {/* DIN FÖRTEX (ORDAGRANT ENLIGT DINA FYRA STYCKEN) */}
             <div className="bg-white border border-black/10 rounded-3xl p-8 sm:p-10 shadow-xs space-y-4 text-base leading-relaxed text-[#090023]">
-             <p>
-  Artiklarna utgår från ett bibliskt unitariskt perspektiv (
-  <button
-    type="button"
-    onClick={() => setVisaOmOssModal(true)}
-    className="underline cursor-pointer hover:opacity-75"
-  >
-    här
-  </button>
-  ) och syftar till sakligt sanningssökande: självständig bibelforskning, språklig exegetik och källkritisk analys fri från kyrkotraditionens förutfattade meningar.
-</p>
+              <p>
+                Artiklarna utgår från ett bibliskt unitariskt perspektiv (
+                <button
+                  type="button"
+                  onClick={() => setVisaOmOssModal(true)}
+                  className="underline cursor-pointer hover:opacity-75"
+                >
+                  här
+                </button>
+                ) och syftar till sakligt sanningssökande: självständig bibelforskning, språklig exegetik och källkritisk analys fri från kyrkotraditionens förutfattade meningar.
+              </p>
               <p>
                 Kritik av metod, texttrohet, logik och grundtextreferenser är välkommen. Att enbart hänvisa till annan samfundstradition eller dogmatiska formler tillför inget och beaktas inte.
               </p>
@@ -508,7 +507,7 @@ const [visaOmOssModal, setVisaOmOssModal] = useState(false);
                       {art.titel}
                     </h2>
 
-                    <p className="text-sm text-[#090023] leading-relaxed">
+                    <p className="text-base text-[#090023] leading-relaxed">
                       {art.ingress}
                     </p>
 
@@ -523,8 +522,8 @@ const [visaOmOssModal, setVisaOmOssModal] = useState(false);
 
                 {filtreradeArtiklar.length === 0 && (
                   <div className="bg-white border border-black/10 rounded-2xl p-10 text-center space-y-2">
-                    <p className="font-bold text-[#090023]">Inga artiklar matchade din sökning.</p>
-                    <p className="text-xs text-[#090023]">Prova ett annat sökord eller klicka på en kategori i trädet till vänster.</p>
+                    <p className="text-base font-bold text-[#090023]">Inga artiklar matchade din sökning.</p>
+                    <p className="text-base text-[#090023]">Prova ett annat sökord eller klicka på en kategori i trädet till vänster.</p>
                   </div>
                 )}
               </div>
@@ -532,6 +531,7 @@ const [visaOmOssModal, setVisaOmOssModal] = useState(false);
           </section>
         </>
       )}
+
       {/* POP-UP: VÅR TROSGRUND (se ”Om oss”) */}
       {visaOmOssModal && (
         <div className="fixed inset-0 bg-black/60 z-50 flex items-center justify-center p-4">
@@ -545,27 +545,24 @@ const [visaOmOssModal, setVisaOmOssModal] = useState(false);
               <X className="size-5" />
             </button>
 
-            {/* Rubrik & Underrubrik */}
-            <div className="space-y-1 border-b border-black/10 pb-4">
-              <h3 className="text-xl sm:text-2xl font-bold uppercase tracking-wider text-[#090023]">
-                VÅR TROSGRUND
+            {/* Rubrik */}
+            <div className="border-b border-black/10 pb-4">
+              <h3 className="text-3xl sm:text-4xl font-bold text-[#090023]">
+                Vår trosgrund
               </h3>
-              <p className="text-xs font-semibold uppercase tracking-widest text-[#090023]">
-                GRUNDAD UTESLUTANDE I BIBELNS EGNA GRUNDTEXTER
-              </p>
             </div>
 
             {/* De tre punkterna */}
-            <div className="space-y-5 text-sm leading-relaxed">
+            <div className="space-y-5 leading-relaxed">
               {/* Fadern */}
               <div className="space-y-1">
                 <span className="text-xs font-bold uppercase tracking-widest text-[#090023] bg-[#f3f0ed] px-2.5 py-0.5 rounded-full inline-block">
                   FADERN
                 </span>
-                <h4 className="font-bold text-xs uppercase tracking-wider text-[#090023] pt-1">
-                  DEN ENDE SANNE GUDEN
+                <h4 className="text-xl sm:text-2xl font-bold text-[#090023] pt-1">
+                  Den ende sanne Guden
                 </h4>
-                <p className="text-[#090023]">
+                <p className="text-base text-[#090023]">
                   Vi tror som Kristus att Fadern är den ende sanne Guden (Joh 17:3). Ingen annan är Gud i samma mening som Fadern.
                 </p>
               </div>
@@ -575,10 +572,10 @@ const [visaOmOssModal, setVisaOmOssModal] = useState(false);
                 <span className="text-xs font-bold uppercase tracking-widest text-[#090023] bg-[#f3f0ed] px-2.5 py-0.5 rounded-full inline-block">
                   SONEN
                 </span>
-                <h4 className="font-bold text-xs uppercase tracking-wider text-[#090023] pt-1">
-                  GUDS ENFÖDDE SON &amp; MESSIAS
+                <h4 className="text-xl sm:text-2xl font-bold text-[#090023] pt-1">
+                  Guds enfödde Son &amp; Messias
                 </h4>
-                <p className="text-[#090023]">
+                <p className="text-base text-[#090023]">
                   Jesus Kristus är till sin natur en icke-preexistent människa (1 Tim 2:5), född av kvinna och smord till Messias och Herre.
                 </p>
               </div>
@@ -588,10 +585,10 @@ const [visaOmOssModal, setVisaOmOssModal] = useState(false);
                 <span className="text-xs font-bold uppercase tracking-widest text-[#090023] bg-[#f3f0ed] px-2.5 py-0.5 rounded-full inline-block">
                   ANDEN
                 </span>
-                <h4 className="font-bold text-xs uppercase tracking-wider text-[#090023] pt-1">
-                  GUDS KRAFT &amp; NÄRVARO
+                <h4 className="text-xl sm:text-2xl font-bold text-[#090023] pt-1">
+                  Guds kraft &amp; närvaro
                 </h4>
-                <p className="text-[#090023]">
+                <p className="text-base text-[#090023]">
                   Den helige Ande är inte en tredje person i en gudom. Begreppet syftar på Faderns egen ande och verksamhet, och ibland på Kristus själv.
                 </p>
               </div>
