@@ -27,13 +27,10 @@ function OmOssPage() {
 
       {/* 2. VÅR TROSGRUND */}
       <section className="py-20 px-6 max-w-5xl mx-auto font-serif">
-        <div className="text-center mb-12 space-y-2">
-          <h2 className="text-2xl sm:text-3xl font-bold uppercase tracking-wider text-[#090023]">
-            VÅR TROSGRUND
+        <div className="text-center mb-12">
+          <h2 className="text-2xl sm:text-3xl font-bold text-[#090023]">
+            Vår trosgrund
           </h2>
-          <p className="text-xs font-semibold uppercase tracking-widest text-[#090023]">
-            GRUNDAD UTESLUTANDE I BIBELNS EGNA GRUNDTEXTER
-          </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -77,7 +74,7 @@ function OmOssPage() {
           </div>
         </div>
 
-        <div className="mt-8 p-6 rounded-2xl bg-[#f3f0ed] border border-black/10 text-center text-base text-[#090023]">
+        <div className="mt-8 p-6 rounded-2xl bg-[#f3f0ed] border border-black/10 text-center text-lg text-[#090023]">
           <p>
             Vi tror att Treenighetsläran är en mänsklig konstruktion som utvecklats över tid genom så kallad progressiv uppenbarelse.
             Biblisk unitarisk tro berör fler områden, vilket återspeglas i artiklarna – men vårt uppdrag är koncentrerat till kärnan i tron.
@@ -92,8 +89,8 @@ function OmOssPage() {
             <span className="text-xs font-bold uppercase tracking-widest text-[#F9F8F5] bg-[#090023] px-3.5 py-1.5 rounded-full inline-block mb-4">
               BAKGRUND &amp; ERFARENHET
             </span>
-            <h2 className="text-2xl sm:text-4xl font-bold uppercase tracking-wider text-[#090023]">
-              VAR INTE EN JA-SÄGARE – VÄGEN TILL FRIHET
+            <h2 className="text-2xl sm:text-3xl font-bold text-[#090023]">
+              Var inte en ja-sägare – vägen till frihet
             </h2>
             <div className="text-base text-[#090023] space-y-4 mt-6 leading-relaxed">
               <p>
@@ -114,8 +111,8 @@ function OmOssPage() {
 
           {/* De 4 besluten */}
           <div className="bg-[#f3f0ed] rounded-3xl p-8 sm:p-10 border border-black/10 space-y-6">
-            <h3 className="text-xl font-bold uppercase tracking-wider text-[#090023]">
-              JAG BESLUTAR:
+            <h3 className="text-xl font-bold text-[#090023]">
+              Jag beslutar:
             </h3>
 
             <div className="space-y-4">
@@ -124,8 +121,8 @@ function OmOssPage() {
                   1
                 </span>
                 <div>
-                  <h4 className="font-bold text-base uppercase tracking-wider text-[#090023]">
-                    ATT ALLTID SÖKA SANNINGEN I SKRIFTEN
+                  <h4 className="font-bold text-base text-[#090023]">
+                    Att alltid söka sanningen i Skriften
                   </h4>
                   <p className="text-base text-[#090023] mt-1 leading-relaxed">
                     Oavsett samfundstradition och människors åsikter. Det handlar om exegetik och textanalys, men framför allt om att våga ifrågasätta felaktiga slutsatser.
@@ -138,8 +135,8 @@ function OmOssPage() {
                   2
                 </span>
                 <div>
-                  <h4 className="font-bold text-base uppercase tracking-wider text-[#090023]">
-                    ATT ALDRIG KOMMA TILL SKRIFTEN MED EN FÖRUTFATTAD MENING
+                  <h4 className="font-bold text-base text-[#090023]">
+                    Att aldrig komma till Skriften med en förutfattad mening
                   </h4>
                   <p className="text-base text-[#090023] mt-1 leading-relaxed">
                     Att stå fri från fördomsbekräftelse, selektiv perception och kognitiv dissonans.
@@ -152,8 +149,8 @@ function OmOssPage() {
                   3
                 </span>
                 <div>
-                  <h4 className="font-bold text-base uppercase tracking-wider text-[#090023]">
-                    ATT ALLTID HÅLLA SKRIFTENS SANNING SOM HÖGSTA AUKTORITET
+                  <h4 className="font-bold text-base text-[#090023]">
+                    Att alltid hålla Skriftens sanning som högsta auktoritet
                   </h4>
                   <p className="text-base text-[#090023] mt-1 leading-relaxed">
                     Det spelar ingen roll vad traditioner och teologer säger om det inte stämmer med Skriften.
@@ -166,8 +163,8 @@ function OmOssPage() {
                   4
                 </span>
                 <div>
-                  <h4 className="font-bold text-base uppercase tracking-wider text-[#090023]">
-                    ATT ALLTID OCH I VARJE SAMMANHANG STÅ UPP FÖR OCH DELA SANNINGEN
+                  <h4 className="font-bold text-base text-[#090023]">
+                    Att alltid och i varje sammanhang stå upp för och dela sanningen
                   </h4>
                   <p className="text-base text-[#090023] mt-1 leading-relaxed">
                     Ibland gör sanningen ont, men i förlängningen är den det enda som befriar.
