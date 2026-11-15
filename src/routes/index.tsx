@@ -41,7 +41,7 @@ function IndexPage() {
             <div className="size-10 rounded-xl bg-[#f3f0ed] text-[#090023] flex items-center justify-center mb-4">
               <Compass className="size-5" />
             </div>
-            <h3 className="text-lg sm:text-xl font-bold text-[#090023]">
+            <h3 className="text-xl sm:text-2xl font-bold text-[#090023]">
               Perspektiv som öppnar nya dörrar
             </h3>
             <p className="text-lg text-[#090023] leading-relaxed">
@@ -53,7 +53,7 @@ function IndexPage() {
             <div className="size-10 rounded-xl bg-[#f3f0ed] text-[#090023] flex items-center justify-center mb-4">
               <Lightbulb className="size-5" />
             </div>
-            <h3 className="text-lg sm:text-xl font-bold text-[#090023]">
+            <h3 className="text-xl sm:text-2xl font-bold text-[#090023]">
               Slutsatser som förändrar hur du läser Bibeln
             </h3>
             <p className="text-lg text-[#090023] leading-relaxed">
