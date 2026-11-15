@@ -28,7 +28,7 @@ function OmOssPage() {
       {/* 2. VÅR TROSGRUND */}
       <section className="py-20 px-6 max-w-5xl mx-auto font-serif">
         <div className="text-center mb-12">
-          <h2 className="text-2xl sm:text-3xl font-bold text-[#090023]">
+          <h2 className="text-3xl sm:text-4xl font-bold text-[#090023]">
             Vår trosgrund
           </h2>
         </div>
@@ -89,7 +89,7 @@ function OmOssPage() {
             <span className="text-xs font-bold uppercase tracking-widest text-[#F9F8F5] bg-[#090023] px-3.5 py-1.5 rounded-full inline-block mb-4">
               BAKGRUND &amp; ERFARENHET
             </span>
-            <h2 className="text-2xl sm:text-3xl font-bold text-[#090023]">
+            <h2 className="text-3xl sm:text-4xl font-bold text-[#090023]">
               Var inte en ja-sägare – vägen till frihet
             </h2>
             <div className="text-base text-[#090023] space-y-4 mt-6 leading-relaxed">
@@ -121,7 +121,7 @@ function OmOssPage() {
                   1
                 </span>
                 <div>
-                  <h4 className="font-bold text-base text-[#090023]">
+                  <h4 className="font-bold text-lg sm:text-xl text-[#090023]">
                     Att alltid söka sanningen i Skriften
                   </h4>
                   <p className="text-base text-[#090023] mt-1 leading-relaxed">
@@ -135,7 +135,7 @@ function OmOssPage() {
                   2
                 </span>
                 <div>
-                  <h4 className="font-bold text-base text-[#090023]">
+                  <h4 className="font-bold text-lg sm:text-xl text-[#090023]">
                     Att aldrig komma till Skriften med en förutfattad mening
                   </h4>
                   <p className="text-base text-[#090023] mt-1 leading-relaxed">
@@ -149,7 +149,7 @@ function OmOssPage() {
                   3
                 </span>
                 <div>
-                  <h4 className="font-bold text-base text-[#090023]">
+                  <h4 className="font-bold text-lg sm:text-xl text-[#090023]">
                     Att alltid hålla Skriftens sanning som högsta auktoritet
                   </h4>
                   <p className="text-base text-[#090023] mt-1 leading-relaxed">
@@ -163,7 +163,7 @@ function OmOssPage() {
                   4
                 </span>
                 <div>
-                  <h4 className="font-bold text-base text-[#090023]">
+                  <h4 className="font-bold text-lg sm:text-xl text-[#090023]">
                     Att alltid och i varje sammanhang stå upp för och dela sanningen
                   </h4>
                   <p className="text-base text-[#090023] mt-1 leading-relaxed">
