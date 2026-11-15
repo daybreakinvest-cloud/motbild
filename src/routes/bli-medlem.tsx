@@ -67,11 +67,20 @@ function BliMedlemPage() {
 
   return (
     <SiteLayout>
-      <section className="py-16 md:py-20 px-6 max-w-3xl mx-auto">
-        <h1 className="text-4xl sm:text-4xl md:text-5xl font-serif font-bold text-[#090023] leading-tight mb-6">
-          Ansökan om medlemskap
-        </h1>
+      {/* 1. HERO SECTION */}
+      <section className="bg-[#090023] text-[#F9F8F5] py-20 md:py-24 px-6 border-b border-white/10 font-serif text-center">
+        <div className="max-w-4xl mx-auto space-y-5">
+          <h1 className="text-4xl sm:text-4xl md:text-5xl font-bold leading-tight text-[#F9F8F5]">
+            Ansökan om medlemskap
+          </h1>
+          <p className="text-xl sm:text-2xl text-[#F9F8F5] max-w-2xl mx-auto leading-relaxed">
+            {/* Underrubrik läggs till i nästa fas */}
+          </p>
+        </div>
+      </section>
 
+      {/* 2. INNEHÅLL & FORMULÄR */}
+      <section className="py-16 md:py-20 px-6 max-w-3xl mx-auto">
         <div className="bg-white border border-black/10 rounded-2xl p-6 sm:p-8 space-y-4 mb-8 text-base text-[#090023] font-serif leading-relaxed">
           <p>Motbild byggs av människor.</p>
           <p>
