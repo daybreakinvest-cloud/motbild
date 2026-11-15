@@ -68,10 +68,10 @@ function BliMedlemPage() {
   return (
     <SiteLayout>
       <section className="py-16 md:py-20 px-6 max-w-3xl mx-auto">
-        <h1 className="text-3xl sm:text-4xl font-serif font-bold text-[#090023] mb-6">
+        <h1 className="text-4xl sm:text-4xl md:text-5xl font-serif font-bold text-[#090023] leading-tight mb-6">
           Ansökan om medlemskap
         </h1>
-        
+
         <div className="bg-white border border-black/10 rounded-2xl p-6 sm:p-8 space-y-4 mb-8 text-base text-[#090023] font-serif leading-relaxed">
           <p>Motbild byggs av människor.</p>
           <p>
@@ -87,15 +87,17 @@ function BliMedlemPage() {
         {skickat ? (
           <div className="bg-[#f3f0ed] border border-black/10 rounded-2xl p-8 text-center space-y-3 font-sans">
             <CheckCircle2 className="size-12 text-emerald-700 mx-auto" />
-            <h3 className="text-xl font-bold font-serif text-[#090023]">Tack för din medlemsansökan!</h3>
-            <p className="text-sm font-serif text-[#090023]">
+            <h3 className="text-xl sm:text-2xl font-bold font-serif text-[#090023]">
+              Tack för din medlemsansökan!
+            </h3>
+            <p className="text-base font-serif text-[#090023] leading-relaxed">
               Vi har tagit emot dina uppgifter och återkommer till dig inom kort.
             </p>
           </div>
         ) : (
           <form onSubmit={handleSubmit} className="bg-white border border-black/10 rounded-2xl p-6 sm:p-8 space-y-6">
             <div>
-              <h2 className="text-lg font-bold font-serif text-[#090023] mb-3">
+              <h2 className="text-xl sm:text-2xl font-bold font-serif text-[#090023] mb-3">
                 Kompetens, erfarenhet och engagemang
               </h2>
               <label className="block text-xs font-sans font-semibold uppercase tracking-wider text-[#090023] mb-2">
@@ -131,7 +133,7 @@ function BliMedlemPage() {
             </div>
 
             <div className="pt-4 border-t border-black/10">
-              <h2 className="text-lg font-bold font-serif text-[#090023] mb-4">
+              <h2 className="text-xl sm:text-2xl font-bold font-serif text-[#090023] mb-4">
                 Personuppgifter
               </h2>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
