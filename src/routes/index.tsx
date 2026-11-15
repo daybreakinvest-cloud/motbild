@@ -12,7 +12,7 @@ function IndexPage() {
       {/* 1. HERO SECTION (BILDLÖS, CENTRERAD) */}
       <section className="w-full bg-[#090023] border-b border-white/10 py-20 md:py-28 px-6">
         <div className="max-w-4xl mx-auto text-center space-y-6">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-serif font-bold text-[#F9F8F5] leading-tight">
+          <h1 className="text-4xl sm:text-4xl md:text-5xl font-serif font-bold text-[#F9F8F5] leading-tight">
             Ge din tillbedjan värde och låt din själ befrias genom kompromisslös lydnad för Kristi ord om Fadern
           </h1>
 
