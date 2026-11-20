@@ -1,0 +1,149 @@
+name: Auto-translate Swedish pages to English
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "src/routes/index.tsx"
+      - "src/routes/om-oss.tsx"
+      - "src/routes/debatt.tsx"
+      - "src/routes/medarrangor.tsx"
+      - "src/routes/bli-medlem.tsx"
+      - "src/routes/stadgar.tsx"
+      - "src/routes/integritetspolicy.tsx"
+      - "src/routes/cookiepolicy.tsx"
+
+permissions:
+  contents: write
+
+jobs:
+  translate:
+    if: "!startsWith(github.event.head_commit.message, 'Auto-translate')"
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Find changed Swedish pages
+        id: changed
+        run: |
+          FILES=$(git diff --name-only HEAD~1 HEAD -- \
+            src/routes/index.tsx \
+            src/routes/om-oss.tsx \
+            src/routes/debatt.tsx \
+            src/routes/medarrangor.tsx \
+            src/routes/bli-medlem.tsx \
+            src/routes/stadgar.tsx \
+            src/routes/integritetspolicy.tsx \
+            src/routes/cookiepolicy.tsx | tr '\n' ' ')
+          echo "files=$FILES" >> "$GITHUB_OUTPUT"
+
+      - name: Translate changed pages with Gemini
+        if: steps.changed.outputs.files != ''
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          CHANGED_FILES: ${{ steps.changed.outputs.files }}
+        run: |
+          node --input-type=module << 'EOF'
+          import fs from "node:fs";
+
+          const FILE_MAP = {
+            "src/routes/index.tsx": "src/routes/en.index.tsx",
+            "src/routes/om-oss.tsx": "src/routes/en.about.tsx",
+            "src/routes/debatt.tsx": "src/routes/en.debate.tsx",
+            "src/routes/medarrangor.tsx": "src/routes/en.co-host.tsx",
+            "src/routes/bli-medlem.tsx": "src/routes/en.join.tsx",
+            "src/routes/stadgar.tsx": "src/routes/en.bylaws.tsx",
+            "src/routes/integritetspolicy.tsx": "src/routes/en.privacy-policy.tsx",
+            "src/routes/cookiepolicy.tsx": "src/routes/en.cookie-policy.tsx",
+          };
+
+          const SYSTEM_PROMPT = `You are an elite academic translator and React/TypeScript developer.
+          Your task is to update an existing English React TSX route file so that its visible text, headings, labels, and content match the updated Swedish React TSX route file in publication-grade Oxford/Chicago academic English.
+
+          Strict rules:
+          1. Preserve Biblical Unitarian theological precision faithfully (e.g., "the Father, the only true God", "non-pre-existent", "Motbild – Biblical Unitarian Network").
+          2. Preserve sentence case on all headings (only the first word and proper nouns capitalized—never Title Case or ALL CAPS unless the Swedish original is a small pill badge/button label).
+          3. Keep the English file's exact createFileRoute("/en/...") path, component name, "/en/..." <Link> targets, Supabase table/column names (like "medlemmar", "medarrangorer"), and Tailwind classes intact.
+          4. Sync any new text size classes or structural adjustments from the Swedish file to the English file.
+          5. Output ONLY valid raw TypeScript/TSX code for the complete updated English file. Do NOT wrap output in markdown code fences.`;
+
+          const apiKey = process.env.GEMINI_API_KEY;
+          const changedFiles = (process.env.CHANGED_FILES || "").trim().split(/\s+/).filter(Boolean);
+
+          for (const svPath of changedFiles) {
+            const enPath = FILE_MAP[svPath];
+            if (!enPath || !fs.existsSync(svPath) || !fs.existsSync(enPath)) continue;
+
+            const svCode = fs.readFileSync(svPath, "utf8");
+            const enCode = fs.readFileSync(enPath, "utf8");
+
+            const res = await fetch(
+              "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:generateContent",
+              {
+                method: "POST",
+                headers: {
+                  "Content-Type": "application/json",
+                  "x-goog-api-key": apiKey,
+                },
+                body: JSON.stringify({
+                  systemInstruction: { parts: [{ text: SYSTEM_PROMPT }] },
+                  contents: [
+                    {
+                      role: "user",
+                      parts: [
+                        {
+                          text: `Updated Swedish file (${svPath}):\n\n${svCode}\n\nExisting English file (${enPath}) to update:\n\n${enCode}`,
+                        },
+                      ],
+                    },
+                  ],
+                  generationConfig: { temperature: 0.2 },
+                }),
+              }
+            );
+
+            if (!res.ok) {
+              const err = await res.text();
+              throw new Error(`Gemini error for ${svPath}: ${err}`);
+            }
+
+            const data = await res.json();
+            let updatedEn = data?.candidates?.[0]?.content?.parts?.[0]?.text ?? "";
+            updatedEn = updatedEn.replace(/^```[a-zA-Z]*\r?\n?/, "").replace(/\r?\n?```$/, "").trim() + "\n";
+
+            if (!updatedEn.includes("createFileRoute")) {
+              throw new Error(`Invalid TSX generated for ${enPath}`);
+            }
+
+            fs.writeFileSync(enPath, updatedEn, "utf8");
+            console.log(`Updated ${enPath} from ${svPath}`);
+          }
+          EOF
+
+      - name: Verify production build before committing
+        if: steps.changed.outputs.files != ''
+        run: |
+          npm ci
+          npm run build
+
+      - name: Commit and push updated English pages
+        if: steps.changed.outputs.files != ''
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add src/routes/en.*.tsx
+          if git diff --cached --quiet; then
+            echo "No English file changes to commit."
+          else
+            git commit -m "Auto-translate updated Swedish pages to English"
+            git push
+          fi
