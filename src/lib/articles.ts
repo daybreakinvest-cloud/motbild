@@ -45,6 +45,17 @@ export interface ArtikelRow {
   substack_url: string | null;
 }
 
+export interface ArtikelOmdome {
+  id: string;
+  artikel_slug: string;
+  betyg: number;
+  kommentar: string | null;
+  kommentar_en: string | null;
+  sprak: string;
+  synlig: boolean;
+  skapad_at: string;
+}
+
 export interface KategoriNod {
   id: string;
   namn: string;
@@ -194,6 +205,44 @@ export async function fetchEnglishArticleBySlug(slugEn: string): Promise<Artikel
     return null;
   }
   return (data as ArtikelRow | null) ?? null;
+}
+
+export async function fetchArticleReviews(artikelSlug: string): Promise<ArtikelOmdome[]> {
+  const { data, error } = await supabase
+    .from("artikel_omdomen")
+    .select("*")
+    .eq("artikel_slug", artikelSlug)
+    .eq("synlig", true)
+    .order("skapad_at", { ascending: false });
+
+  if (error) {
+    console.error("Error fetching article reviews:", error);
+    return [];
+  }
+  return (data ?? []) as ArtikelOmdome[];
+}
+
+export async function submitArticleReview(params: {
+  artikel_slug: string;
+  betyg: number;
+  kommentar: string;
+  sprak: "sv" | "en";
+}): Promise<boolean> {
+  const cleanComment = params.kommentar.trim();
+  const { error } = await supabase.from("artikel_omdomen").insert({
+    artikel_slug: params.artikel_slug,
+    betyg: params.betyg,
+    kommentar: cleanComment || null,
+    sprak: params.sprak,
+    kommentar_en: params.sprak === "en" ? cleanComment || null : null,
+    synlig: true,
+  });
+
+  if (error) {
+    console.error("Error submitting review:", error);
+    return false;
+  }
+  return true;
 }
 
 export function formatArticleDate(iso: string | null): string {
