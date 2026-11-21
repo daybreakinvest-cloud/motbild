@@ -385,9 +385,9 @@ function ArtikelDetailPage() {
                   type="button"
                   disabled={skickarOmdome}
                   onClick={handleSendReview}
-                  className="px-6 py-3 bg-[#090023] hover:bg-black text-[#F9F8F5] rounded-xl font-bold text-xs uppercase tracking-widest transition-all cursor-pointer disabled:opacity-60"
+                  className="px-6 py-3 bg-[#090023] hover:bg-black text-[#F9F8F5] rounded-xl font-bold text-sm transition-all cursor-pointer disabled:opacity-60"
                 >
-                  {skickarOmdome ? "SKICKAR..." : "SKICKA OMDÖME"}
+                  {skickarOmdome ? "Skickar..." : "Skicka omdöme"}
                 </button>
               </div>
             )}
@@ -423,10 +423,10 @@ function ArtikelDetailPage() {
             <button
               type="button"
               onClick={() => setVisaDonationModal(true)}
-              className="inline-flex items-center gap-2.5 px-8 py-4 rounded-xl bg-[#FFA8CD] hover:bg-[#ff94be] text-[#090023] font-bold text-xs uppercase tracking-widest transition-all cursor-pointer shadow-sm"
+              className="inline-flex items-center gap-2.5 px-8 py-4 rounded-xl bg-[#FFA8CD] hover:bg-[#ff94be] text-[#090023] font-bold text-sm transition-all cursor-pointer shadow-sm"
             >
               <Heart className="size-4 text-[#090023]" />
-              VISA DIN UPPSKATTNING
+              Visa din uppskattning
             </button>
           </div>
         </article>
