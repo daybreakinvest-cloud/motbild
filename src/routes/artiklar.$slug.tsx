@@ -3,11 +3,14 @@ import { useState, useEffect } from "react";
 import { SiteLayout } from "@/components/SiteLayout";
 import {
   type ArtikelRow,
+  type ArtikelOmdome,
   fetchSwedishArticleBySlug,
+  fetchArticleReviews,
+  submitArticleReview,
   formatArticleDate,
   parseReferenser,
 } from "@/lib/articles";
-import { Heart, ArrowLeft, Calendar, User, X } from "lucide-react";
+import { Heart, ArrowLeft, Calendar, User, X, Star } from "lucide-react";
 
 export const Route = createFileRoute("/artiklar/$slug")({
   component: ArtikelDetailPage,
@@ -52,10 +55,12 @@ function renderFlexibleContent(raw: string) {
 function ArtikelDetailPage() {
   const { slug } = Route.useParams();
   const [artikel, setArtikel] = useState<ArtikelRow | null>(null);
+  const [omdomen, setOmdomen] = useState<ArtikelOmdome[]>([]);
   const [laddar, setLaddar] = useState(true);
 
   const [valtBetyg, setValtBetyg] = useState<number | null>(null);
   const [omdomeText, setOmdomeText] = useState("");
+  const [skickarOmdome, setSkickarOmdome] = useState(false);
   const [omdomeSkickat, setOmdomeSkickat] = useState(false);
   const [visaDonationModal, setVisaDonationModal] = useState(false);
 
@@ -67,17 +72,45 @@ function ArtikelDetailPage() {
     setOmdomeSkickat(false);
     window.scrollTo({ top: 0, behavior: "smooth" });
 
-    fetchSwedishArticleBySlug(slug).then((data) => {
-      if (active) {
-        setArtikel(data);
-        setLaddar(false);
+    fetchSwedishArticleBySlug(slug).then(async (data) => {
+      if (!active) return;
+      setArtikel(data);
+      if (data) {
+        const reviews = await fetchArticleReviews(data.slug);
+        if (active) setOmdomen(reviews);
+      } else {
+        setOmdomen([]);
       }
+      if (active) setLaddar(false);
     });
 
     return () => {
       active = false;
     };
   }, [slug]);
+
+  async function handleSendReview() {
+    if (!artikel) return;
+    if (!valtBetyg) {
+      alert("Välj ett betyg mellan 1 och 5.");
+      return;
+    }
+    setSkickarOmdome(true);
+    const ok = await submitArticleReview({
+      artikel_slug: artikel.slug,
+      betyg: valtBetyg,
+      kommentar: omdomeText,
+      sprak: "sv",
+    });
+    if (ok) {
+      setOmdomeSkickat(true);
+      const updated = await fetchArticleReviews(artikel.slug);
+      setOmdomen(updated);
+    } else {
+      alert("Något gick fel när omdömet skulle skickas. Försök igen.");
+    }
+    setSkickarOmdome(false);
+  }
 
   if (laddar) {
     return (
@@ -113,6 +146,15 @@ function ArtikelDetailPage() {
   const forfattare = artikel.forfattare ?? "Peter Abramsgård";
   const fotnoter = Array.isArray(artikel.fotnoter) ? artikel.fotnoter : [];
   const referenser = parseReferenser(artikel.referenser);
+
+  const antalBetyg = omdomen.length;
+  const snittBetyg =
+    antalBetyg > 0
+      ? (omdomen.reduce((sum, r) => sum + r.betyg, 0) / antalBetyg)
+          .toFixed(1)
+          .replace(".", ",")
+      : null;
+  const synligaKommentarer = omdomen.filter((r) => r.kommentar?.trim());
 
   return (
     <SiteLayout>
@@ -155,7 +197,7 @@ function ArtikelDetailPage() {
             </div>
           )}
 
-          {/* Fasta akademiska avsnitt (visas när de har innehåll) */}
+          {/* Fasta akademiska avsnitt */}
           {artikel.sammanfattning?.trim() && (
             <div className="space-y-3">
               <h2 className="text-3xl sm:text-4xl font-bold text-[#090023]">Sammanfattning</h2>
@@ -212,7 +254,7 @@ function ArtikelDetailPage() {
             </div>
           )}
 
-          {/* Flexibelt artikelinnehåll med ## / ###-rubriker */}
+          {/* Flexibelt innehåll */}
           {artikel.innehall?.trim() && (
             <div className="space-y-4">{renderFlexibleContent(artikel.innehall)}</div>
           )}
@@ -226,7 +268,7 @@ function ArtikelDetailPage() {
             </div>
           )}
 
-          {/* Fotnoter & Källor (Chicago) */}
+          {/* Fotnoter & Källor */}
           {(fotnoter.length > 0 || referenser.length > 0) && (
             <div className="border-t border-black/10 pt-8 space-y-5 text-sm text-[#090023]">
               {fotnoter.length > 0 && (
@@ -268,11 +310,24 @@ function ArtikelDetailPage() {
             </div>
           </div>
 
-          {/* BETYGSÄTTNING (1–5) OCH OMDÖME */}
-          <div className="bg-white border border-black/10 rounded-2xl p-6 sm:p-8 space-y-4 shadow-xs mt-10">
-            <h3 className="text-xl sm:text-2xl font-bold text-[#090023]">
-              Vad tyckte du om artikelns akademiska kvalitet?
-            </h3>
+          {/* BETYGSÄTTNING (1–5) & ÖPPNA OMDÖMEN */}
+          <div className="bg-white border border-black/10 rounded-2xl p-6 sm:p-8 space-y-6 shadow-xs mt-10">
+            <div className="flex flex-wrap items-center justify-between gap-3 border-b border-black/10 pb-4">
+              <h3 className="text-xl sm:text-2xl font-bold text-[#090023]">
+                Vad tyckte du om artikelns akademiska kvalitet?
+              </h3>
+              <div className="inline-flex items-center gap-2 bg-[#f3f0ed] px-3.5 py-1.5 rounded-full text-xs font-bold text-[#090023]">
+                <Star className="size-3.5 fill-[#090023] text-[#090023]" />
+                {snittBetyg ? (
+                  <span>
+                    {snittBetyg} av 5 · {antalBetyg}{" "}
+                    {antalBetyg === 1 ? "betygssättare" : "betygssättare"}
+                  </span>
+                ) : (
+                  <span>Inga betyg ännu</span>
+                )}
+              </div>
+            </div>
 
             {omdomeSkickat ? (
               <div className="p-4 bg-[#f3f0ed] rounded-xl text-base text-[#090023] font-semibold">
@@ -321,17 +376,37 @@ function ArtikelDetailPage() {
 
                 <button
                   type="button"
-                  onClick={() => {
-                    if (!valtBetyg) {
-                      alert("Välj ett betyg mellan 1 och 5.");
-                      return;
-                    }
-                    setOmdomeSkickat(true);
-                  }}
-                  className="px-6 py-3 bg-[#090023] hover:bg-black text-[#F9F8F5] rounded-xl font-bold text-xs uppercase tracking-widest transition-all cursor-pointer"
+                  disabled={skickarOmdome}
+                  onClick={handleSendReview}
+                  className="px-6 py-3 bg-[#090023] hover:bg-black text-[#F9F8F5] rounded-xl font-bold text-xs uppercase tracking-widest transition-all cursor-pointer disabled:opacity-60"
                 >
-                  SKICKA OMDÖME
+                  {skickarOmdome ? "SKICKAR..." : "SKICKA OMDÖME"}
                 </button>
+              </div>
+            )}
+
+            {/* Läsarnas kommentarer */}
+            {synligaKommentarer.length > 0 && (
+              <div className="pt-6 border-t border-black/10 space-y-4">
+                <p className="text-xs font-bold uppercase tracking-wider text-[#090023]">
+                  Läsarnas omdömen ({synligaKommentarer.length})
+                </p>
+                <div className="space-y-3">
+                  {synligaKommentarer.map((item) => (
+                    <div
+                      key={item.id}
+                      className="bg-[#f3f0ed] rounded-xl p-4 border border-black/5 space-y-1.5"
+                    >
+                      <div className="flex items-center justify-between text-xs font-bold text-[#090023]">
+                        <span>Betyg: {item.betyg} / 5</span>
+                        <span>{formatArticleDate(item.skapad_at)}</span>
+                      </div>
+                      <p className="text-base text-[#090023] leading-relaxed">
+                        {item.kommentar}
+                      </p>
+                    </div>
+                  ))}
+                </div>
               </div>
             )}
           </div>
