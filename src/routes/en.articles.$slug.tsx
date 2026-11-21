@@ -3,13 +3,15 @@ import { useState, useEffect } from "react";
 import { SiteLayout } from "@/components/SiteLayout";
 import {
   type ArtikelRow,
+  type ArtikelOmdome,
   fetchEnglishArticleBySlug,
+  fetchArticleReviews,
+  submitArticleReview,
   formatArticleDate,
   parseReferenser,
 } from "@/lib/articles";
-import { Heart, ArrowLeft, Calendar, User, X, ExternalLink } from "lucide-react";
+import { Heart, ArrowLeft, Calendar, User, X, ExternalLink, Star } from "lucide-react";
 
-// Klistra in din Stripe Payment Link mellan citationstecknen när du vill aktivera kortstöd:
 const STRIPE_PAYMENT_LINK = "https://donate.stripe.com/6oU4gs3IteFc2wf6hb9AA00";
 
 export const Route = createFileRoute("/en/articles/$slug")({
@@ -55,10 +57,12 @@ function renderFlexibleContent(raw: string) {
 function EnglishArticleDetailPage() {
   const { slug } = Route.useParams();
   const [article, setArticle] = useState<ArtikelRow | null>(null);
+  const [reviews, setReviews] = useState<ArtikelOmdome[]>([]);
   const [loading, setLoading] = useState(true);
 
   const [selectedRating, setSelectedRating] = useState<number | null>(null);
   const [reviewText, setReviewText] = useState("");
+  const [submittingReview, setSubmittingReview] = useState(false);
   const [reviewSubmitted, setReviewSubmitted] = useState(false);
   const [showSupportModal, setShowSupportModal] = useState(false);
 
@@ -70,17 +74,45 @@ function EnglishArticleDetailPage() {
     setReviewSubmitted(false);
     window.scrollTo({ top: 0, behavior: "smooth" });
 
-    fetchEnglishArticleBySlug(slug).then((data) => {
-      if (active) {
-        setArticle(data);
-        setLoading(false);
+    fetchEnglishArticleBySlug(slug).then(async (data) => {
+      if (!active) return;
+      setArticle(data);
+      if (data) {
+        const fetchedReviews = await fetchArticleReviews(data.slug);
+        if (active) setReviews(fetchedReviews);
+      } else {
+        setReviews([]);
       }
+      if (active) setLoading(false);
     });
 
     return () => {
       active = false;
     };
   }, [slug]);
+
+  async function handleSubmitReview() {
+    if (!article) return;
+    if (!selectedRating) {
+      alert("Please select a rating between 1 and 5.");
+      return;
+    }
+    setSubmittingReview(true);
+    const ok = await submitArticleReview({
+      artikel_slug: article.slug,
+      betyg: selectedRating,
+      kommentar: reviewText,
+      sprak: "en",
+    });
+    if (ok) {
+      setReviewSubmitted(true);
+      const updated = await fetchArticleReviews(article.slug);
+      setReviews(updated);
+    } else {
+      alert("Something went wrong while submitting your review. Please try again.");
+    }
+    setSubmittingReview(false);
+  }
 
   if (loading) {
     return (
@@ -116,6 +148,13 @@ function EnglishArticleDetailPage() {
   const author = article.forfattare ?? "Peter Abramsgård";
   const footnotes = Array.isArray(article.fotnoter_en) ? article.fotnoter_en : [];
   const references = parseReferenser(article.referenser_en);
+
+  const ratingCount = reviews.length;
+  const avgRating =
+    ratingCount > 0
+      ? (reviews.reduce((sum, r) => sum + r.betyg, 0) / ratingCount).toFixed(1)
+      : null;
+  const visibleComments = reviews.filter((r) => (r.kommentar_en ?? r.kommentar)?.trim());
 
   return (
     <SiteLayout>
@@ -215,7 +254,7 @@ function EnglishArticleDetailPage() {
             </div>
           )}
 
-          {/* Flexible content with ## / ### headings */}
+          {/* Flexible content */}
           {article.innehall_en?.trim() && (
             <div className="space-y-4">{renderFlexibleContent(article.innehall_en)}</div>
           )}
@@ -269,11 +308,24 @@ function EnglishArticleDetailPage() {
             </div>
           </div>
 
-          {/* RATING & REVIEW */}
-          <div className="bg-white border border-black/10 rounded-2xl p-6 sm:p-8 space-y-4 shadow-xs mt-10">
-            <h3 className="text-xl sm:text-2xl font-bold text-[#090023]">
-              How did you assess the scholarly quality of this article?
-            </h3>
+          {/* RATING & OPEN REVIEWS */}
+          <div className="bg-white border border-black/10 rounded-2xl p-6 sm:p-8 space-y-6 shadow-xs mt-10">
+            <div className="flex flex-wrap items-center justify-between gap-3 border-b border-black/10 pb-4">
+              <h3 className="text-xl sm:text-2xl font-bold text-[#090023]">
+                How did you assess the scholarly quality of this article?
+              </h3>
+              <div className="inline-flex items-center gap-2 bg-[#f3f0ed] px-3.5 py-1.5 rounded-full text-xs font-bold text-[#090023]">
+                <Star className="size-3.5 fill-[#090023] text-[#090023]" />
+                {avgRating ? (
+                  <span>
+                    {avgRating} out of 5 · {ratingCount}{" "}
+                    {ratingCount === 1 ? "rating" : "ratings"}
+                  </span>
+                ) : (
+                  <span>No ratings yet</span>
+                )}
+              </div>
+            </div>
 
             {reviewSubmitted ? (
               <div className="p-4 bg-[#f3f0ed] rounded-xl text-base text-[#090023] font-semibold">
@@ -322,34 +374,43 @@ function EnglishArticleDetailPage() {
 
                 <button
                   type="button"
-                  onClick={() => {
-                    if (!selectedRating) {
-                      alert("Please select a rating between 1 and 5.");
-                      return;
-                    }
-                    setReviewSubmitted(true);
-                  }}
-                  className="px-6 py-3 bg-[#090023] hover:bg-black text-[#F9F8F5] rounded-xl font-bold text-xs uppercase tracking-widest transition-all cursor-pointer"
+                  disabled={submittingReview}
+                  onClick={handleSubmitReview}
+                  className="px-6 py-3 bg-[#090023] hover:bg-black text-[#F9F8F5] rounded-xl font-bold text-xs uppercase tracking-widest transition-all cursor-pointer disabled:opacity-60"
                 >
-                  SUBMIT REVIEW
+                  {submittingReview ? "SUBMITTING..." : "SUBMIT REVIEW"}
                 </button>
+              </div>
+            )}
+
+            {/* Reader comments */}
+            {visibleComments.length > 0 && (
+              <div className="pt-6 border-t border-black/10 space-y-4">
+                <p className="text-xs font-bold uppercase tracking-wider text-[#090023]">
+                  Reader reviews ({visibleComments.length})
+                </p>
+                <div className="space-y-3">
+                  {visibleComments.map((item) => (
+                    <div
+                      key={item.id}
+                      className="bg-[#f3f0ed] rounded-xl p-4 border border-black/5 space-y-1.5"
+                    >
+                      <div className="flex items-center justify-between text-xs font-bold text-[#090023]">
+                        <span>Rating: {item.betyg} / 5</span>
+                        <span>{formatArticleDate(item.skapad_at)}</span>
+                      </div>
+                      <p className="text-base text-[#090023] leading-relaxed">
+                        {item.kommentar_en ?? item.kommentar}
+                      </p>
+                    </div>
+                  ))}
+                </div>
               </div>
             )}
           </div>
 
-          {/* SUBSTACK & SUPPORT BUTTONS */}
+          {/* SUPPORT BUTTON */}
           <div className="flex flex-wrap items-center justify-center gap-4 pt-6 pb-12">
-            {article.substack_url?.trim() && (
-              <a
-                href={article.substack_url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-[#090023] hover:bg-black text-[#F9F8F5] font-bold text-xs uppercase tracking-widest transition-all shadow-sm"
-              >
-                READ ON SUBSTACK <ExternalLink className="size-4 text-[#F9F8F5]" />
-              </a>
-            )}
-
             <button
               type="button"
               onClick={() => setShowSupportModal(true)}
@@ -403,12 +464,6 @@ function EnglishArticleDetailPage() {
                 </p>
                 <p className="text-lg font-bold text-[#090023]">073-330 29 83</p>
                 <p className="text-xs text-[#090023]">Recipient: Peter Abramsgård</p>
-                {!STRIPE_PAYMENT_LINK && (
-                  <p className="text-xs text-[#090023] pt-2 border-t border-black/10">
-                    For international contributions, please contact{" "}
-                    <strong className="underline">support@motbild.se</strong>.
-                  </p>
-                )}
               </div>
 
               <div className="text-center pt-2">
