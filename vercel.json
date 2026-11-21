@@ -1,4 +1,68 @@
 {
+  "trailingSlash": false,
+  "redirects": [
+    {
+      "source": "/",
+      "has": [{ "type": "query", "key": "page_id" }],
+      "destination": "/artiklar",
+      "permanent": true
+    },
+    {
+      "source": "/page-140",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/bibliskt-unitariskt-natverk",
+      "destination": "/om-oss",
+      "permanent": true
+    },
+    {
+      "source": "/wp-content/:path*",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/wp-admin/:path*",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/wp-includes/:path*",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/wp-login.php",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/feed",
+      "destination": "/artiklar",
+      "permanent": true
+    },
+    {
+      "source": "/comments/feed",
+      "destination": "/artiklar",
+      "permanent": true
+    },
+    {
+      "source": "/category/:path*",
+      "destination": "/artiklar",
+      "permanent": true
+    },
+    {
+      "source": "/tag/:path*",
+      "destination": "/artiklar",
+      "permanent": true
+    },
+    {
+      "source": "/author/:path*",
+      "destination": "/artiklar",
+      "permanent": true
+    }
+  ],
   "rewrites": [
     {
       "source": "/sitemap.xml",
