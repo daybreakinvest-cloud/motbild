@@ -300,10 +300,17 @@ function ArtikelDetailPage() {
           )}
 
           {/* Författarpresentation */}
-          <div className="bg-[#f3f0ed] p-6 rounded-2xl flex items-center gap-4 border border-black/10 mt-8">
-            <div className="size-12 rounded-full bg-[#090023] text-[#F9F8F5] flex items-center justify-center font-bold text-lg shrink-0">
-              {getInitials(forfattare)}
-            </div>
+          {forfattare.toLowerCase().includes("abramsgård") ? (
+              <img
+                src="/peter_abramsgard_portrattbild.png"
+                alt={forfattare}
+                className="size-16 rounded-full object-cover object-top bg-white border border-black/10 shrink-0"
+              />
+            ) : (
+              <div className="size-14 rounded-full bg-[#090023] text-[#F9F8F5] flex items-center justify-center font-bold text-lg shrink-0">
+                {getInitials(forfattare)}
+              </div>
+            )}
             <div>
               <h4 className="font-bold text-lg sm:text-xl text-[#090023]">{forfattare}</h4>
               <p className="text-base text-[#090023] mt-0.5">Bibellärare, skribent och debattör.</p>
