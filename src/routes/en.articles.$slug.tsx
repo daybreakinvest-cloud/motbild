@@ -303,7 +303,7 @@ function EnglishArticleDetailPage() {
               <img
                 src="/peter_abramsgard_portrattbild.png"
                 alt={author}
-                className="size-16 rounded-full object-cover object-top bg-white border border-black/10 shrink-0"
+                className="size-32 sm:size-44 rounded-full object-contain bg-white border border-black/10 shrink-0"
               />
             ) : (
               <div className="size-14 rounded-full bg-[#090023] text-[#F9F8F5] flex items-center justify-center font-bold text-lg shrink-0">
