@@ -2,6 +2,8 @@ import { Link, useLocation } from "@tanstack/react-router";
 import { type ReactNode, useState, useEffect } from "react";
 import { Menu, X, Mail, Phone, MapPin, Globe } from "lucide-react";
 
+const BASE_URL = "https://www.motbild.se";
+
 const SV_TO_EN: Record<string, string> = {
   "/": "/en",
   "/artiklar": "/en/articles",
@@ -43,6 +45,20 @@ function getTargetPaths(pathname: string) {
   };
 }
 
+function upsertHeadLink(rel: string, href: string, hreflang?: string) {
+  const selector = hreflang
+    ? `link[rel="${rel}"][hreflang="${hreflang}"]`
+    : `link[rel="${rel}"]:not([hreflang])`;
+  let el = document.head.querySelector<HTMLLinkElement>(selector);
+  if (!el) {
+    el = document.createElement("link");
+    el.rel = rel;
+    if (hreflang) el.hreflang = hreflang;
+    document.head.appendChild(el);
+  }
+  el.href = href;
+}
+
 export function SiteLayout({ children }: { children: ReactNode }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [showHeader, setShowHeader] = useState(true);
@@ -53,7 +69,31 @@ export function SiteLayout({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     document.documentElement.lang = isEnglish ? "en" : "sv";
-  }, [isEnglish]);
+    document.title = isEnglish
+      ? "Motbild – Biblical Unitarian Network"
+      : "Motbild – Bibliskt Unitariskt Nätverk";
+
+    const cleanPath = pathname.length > 1 ? pathname.replace(/\/+$/, "") : pathname;
+    const canonicalUrl = `${BASE_URL}${cleanPath === "/" ? "" : cleanPath}`;
+    upsertHeadLink("canonical", canonicalUrl);
+
+    const isArticleDetail =
+      cleanPath.startsWith("/artiklar/") || cleanPath.startsWith("/en/articles/");
+
+    if (!isArticleDetail) {
+      const svUrl = `${BASE_URL}${svPath === "/" ? "" : svPath}`;
+      const enUrl = `${BASE_URL}${enPath}`;
+      upsertHeadLink("alternate", svUrl, "sv");
+      upsertHeadLink("alternate", enUrl, "en");
+      upsertHeadLink("alternate", svUrl, "x-default");
+    } else {
+      for (const lang of ["sv", "en", "x-default"]) {
+        document.head
+          .querySelector(`link[rel="alternate"][hreflang="${lang}"]`)
+          ?.remove();
+      }
+    }
+  }, [isEnglish, pathname, svPath, enPath]);
 
   useEffect(() => {
     const handleScroll = () => {
