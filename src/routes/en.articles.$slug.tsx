@@ -10,7 +10,7 @@ import {
 import { Heart, ArrowLeft, Calendar, User, X, ExternalLink } from "lucide-react";
 
 // Klistra in din Stripe Payment Link mellan citationstecknen när du vill aktivera kortstöd:
-const STRIPE_PAYMENT_LINK = "";
+const STRIPE_PAYMENT_LINK = "https://donate.stripe.com/6oU4gs3IteFc2wf6hb9AA00";
 
 export const Route = createFileRoute("/en/articles/$slug")({
   component: EnglishArticleDetailPage,
