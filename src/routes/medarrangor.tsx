@@ -55,7 +55,7 @@ function MedarrangorPage() {
             FÖRSAMLINGSSAMVERKAN
           </div>
           <h1 className="text-4xl sm:text-4xl md:text-5xl font-bold leading-tight text-[#F9F8F5]">
-            Bryt den negativa trenden och skapa verkligt värde
+            Skapa nytt värde och bryt en negativ trend
           </h1>
           <p className="text-xl sm:text-2xl text-[#F9F8F5] max-w-2xl mx-auto leading-relaxed">
             När undersökte dina medlemmar senast varför de tror som de gör?
@@ -71,11 +71,8 @@ function MedarrangorPage() {
             uppstår söker många svar på internet, i poddar och på sociala medier – ofta utan vägledning från den
             lokala församlingen.
           </p>
-          <p className="font-bold text-[#090023]">
-            Det behöver inte vara så.
-          </p>
           <p>
-            Vi är övertygade om att församlingen behöver fler sammanhang där troende uppmuntras att öppna Bibeln,
+            Det behöver inte vara så. Vi är övertygade om att församlingen behöver fler sammanhang där troende uppmuntras att öppna Bibeln,
             pröva argument och själva söka sanningen.
           </p>
         </div>
@@ -87,11 +84,10 @@ function MedarrangorPage() {
               <Flame className="size-5 text-[#090023]" />
             </div>
             <h3 className="text-xl sm:text-2xl font-bold text-[#090023]">
-              Skapa hunger snabbt
+              Skapa hunger
             </h3>
             <p className="text-base text-[#090023] leading-relaxed">
-              Motbild arrangerar modererade offentliga debatter kring de mest grundläggande frågorna: Treenigheten,
-              Kristi gudom och preexistens. Frågor som brinner under ytan i varje församling.
+              Motbild arrangerar modererade offentliga debatter kring frågor som brinner under ytan i varje församling.
             </p>
           </div>
 
@@ -100,7 +96,7 @@ function MedarrangorPage() {
               <Users className="size-5 text-[#090023]" />
             </div>
             <h3 className="text-xl sm:text-2xl font-bold text-[#090023]">
-              Fyll lokalen med sökare
+              Välkomna sökare
             </h3>
             <p className="text-base text-[#090023] leading-relaxed">
               Ett arrangemang kring dessa frågor skapar ett sug som vanliga församlingskvällar sällan gör. Människor
@@ -113,7 +109,7 @@ function MedarrangorPage() {
               <Building2 className="size-5 text-[#090023]" />
             </div>
             <h3 className="text-xl sm:text-2xl font-bold text-[#090023]">
-              Ni öppnar dörrarna
+              Öppna dörrarna
             </h3>
             <p className="text-base text-[#090023] leading-relaxed">
               Motbild ansvarar för planering, moderator, talare och produktion. Ni öppnar dörrarna och välkomnar
@@ -125,10 +121,10 @@ function MedarrangorPage() {
         {/* ARBETS- OCH ANSVARSFÖRDELNING */}
         <div className="bg-[#f3f0ed] rounded-3xl p-8 sm:p-10 border border-black/10 space-y-6">
           <h2 className="text-3xl sm:text-4xl font-bold text-[#090023]">
-            Våga göra något som gör stor skillnad
+            Våga göra skillnad
           </h2>
           <p className="text-base leading-relaxed text-[#090023]">
-            Syftet är inte att utse vinnare eller förlorare, utan att väcka frågor, tända en hunger efter Guds ord och
+            Bidra till att väcka frågor, tända en hunger efter Guds ord och
             visa att kristna kan vara djupt oense och ändå möta varandra med respekt, ödmjukhet och kärlek.
             Det är ledarskap. Det är mod. Och det är precis vad svensk kristenhet behöver just nu.
           </p>
