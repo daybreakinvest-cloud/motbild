@@ -157,7 +157,7 @@ function ArtiklarIndexPage() {
               Oberoende forskning och stöd
             </h3>
             <p className="text-base leading-relaxed text-[#090023]">
-              Varje artikel kräver tiotals timmars forsknings- och skrivarbete och produceras helt oberoende. Vill du stödja fortsatt fördjupning och publicering finns möjlighet till ett personligt bidrag i anslutning till artikeln.
+              Varje artikel kräver tiotals timmars forsknings- och skrivarbete och produceras helt oberoende. Vill du stödja fortsatt fördjupning och publicering finns möjlighet till ett personligt bidrag i anslutning till varje artikel.
             </p>
           </div>
         </div>
