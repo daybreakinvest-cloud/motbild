@@ -86,7 +86,7 @@ function OmOssPage() {
               {/* De 4 besluten */}
           <div className="bg-[#f3f0ed] rounded-3xl p-8 sm:p-10 border border-black/10 space-y-6">
             <h3 className="text-xl font-bold text-[#090023]">
-              Vi är fast beslutna att:
+              Vi är fast beslutna
             </h3>
 
             <div className="space-y-4">
