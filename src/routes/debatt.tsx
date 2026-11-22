@@ -30,43 +30,66 @@ function DebattPage() {
             Varför offentliga debatter?
           </h1>
           <p className="text-xl sm:text-2xl text-[#F9F8F5] max-w-2xl mx-auto leading-relaxed">
-            Debatten är inte målet – den är verktyget. Målet är att hjälpa publiken att själva tänka,
-            studera och pröva argumenten mot Bibeln.
+            Målet är inte att utse vinnare eller förlorare, utan att ge publiken möjlighet att höra båda perspektiven, själva tänka, studera och pröva argumenten mot Bibeln. Debatten är verktyget för att nå dit.
           </p>
         </div>
       </section>
 
       {/* 2. BRÖDTEXT */}
-      <section className="py-20 px-6 max-w-4xl mx-auto space-y-12 font-serif">
-        <div className="space-y-6 text-[#090023] text-base leading-relaxed">
+      <div className="space-y-8">
           <h2 className="text-3xl sm:text-4xl font-bold text-[#090023]">
-            Svensk kristenhet och det öppna samtalet
+            Biblisk förebild och vår samtid
           </h2>
-          <p>
-            I Sverige är vi ovana vid offentlig debatt. Vi föredrar ofta samtal, konsensus och samförstånd.
-            Inom kristenheten har formella debatter dessutom blivit ovanliga, särskilt kring de mest kontroversiella
-            teologiska frågorna. Samtidigt lever vi i ett samhälle där människor dagligen möter konkurrerande
-            perspektiv genom böcker, poddar, YouTube och sociala medier.
-          </p>
-          <p>
-            Jesus gav inte sina lärjungar ett uttryckligt bud att hålla formella debatter. Han gav inte heller
-            något bud att skriva böcker, producera filmer eller bygga webbplatser. Däremot möter vi gång på gång
-            Jesus i offentliga meningsutbyten där han prövar argument, ställer frågor och utmanar etablerade föreställningar.
-          </p>
-          <p>
-            Paulus argumenterade med judarna i synagogorna och mötte filosofer på Areopagen i Aten. Den tidiga
-            kristna missionen präglades inte av tystnad inför olika perspektiv, utan av ett öppet försvar och en
-            öppen prövning av tron.
-          </p>
+
+          <div className="bg-[#f3f0ed] rounded-3xl p-8 sm:p-10 border border-black/10 space-y-6">
+            <div className="flex gap-4 items-start">
+              <span className="font-bold text-base text-[#090023] bg-white size-8 rounded-full flex items-center justify-center shrink-0 border border-black/10">
+                1
+              </span>
+              <div>
+                <h3 className="font-bold text-xl sm:text-2xl text-[#090023]">
+                  Jesu förebild
+                </h3>
+                <p className="text-base text-[#090023] mt-1 leading-relaxed">
+                  Jesus gav lärjungarna inget bud att debattera, men vi möter honom ofta i offentliga meningsutbyten där han prövar argument och utmanar etablerade föreställningar.
+                </p>
+              </div>
+            </div>
+
+            <div className="flex gap-4 items-start">
+              <span className="font-bold text-base text-[#090023] bg-white size-8 rounded-full flex items-center justify-center shrink-0 border border-black/10">
+                2
+              </span>
+              <div>
+                <h3 className="font-bold text-xl sm:text-2xl text-[#090023]">
+                  Paulus och den tidiga missionen
+                </h3>
+                <p className="text-base text-[#090023] mt-1 leading-relaxed">
+                  Paulus argumenterade i synagogorna och på Areopagen. Den tidiga missionen präglades av öppet försvar och öppen prövning av tron.
+                </p>
+              </div>
+            </div>
+
+            <div className="flex gap-4 items-start">
+              <span className="font-bold text-base text-[#090023] bg-white size-8 rounded-full flex items-center justify-center shrink-0 border border-black/10">
+                3
+              </span>
+              <div>
+                <h3 className="font-bold text-xl sm:text-2xl text-[#090023]">
+                  Svensk kristenhet idag
+                </h3>
+                <p className="text-base text-[#090023] mt-1 leading-relaxed">
+                  I Sverige är vi ovana vid offentlig debatt och föredrar samtal och samförstånd. Även inom kristenheten har formella debatter blivit ovanliga, trots att vi dagligen möter konkurrerande perspektiv i böcker, poddar och sociala medier.
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
 
         {/* CITATRUTA */}
         <div className="rounded-3xl bg-[#090023] text-[#F9F8F5] p-8 sm:p-10 border border-white/10 shadow-lg text-center space-y-4">
           <p className="text-xl sm:text-2xl italic text-[#F9F8F5] leading-relaxed">
-            ”Vi är övertygade om att sanningen inte har något att frukta från en öppen och respektfull prövning.”
-          </p>
-          <p className="text-base text-[#F9F8F5]/90 leading-relaxed max-w-2xl mx-auto">
-            Syftet är inte att utse vinnare eller förlorare, utan att ge publiken möjlighet att höra båda perspektiven.
+            ”Vi är övertygade om att sanningen inte har något att frukta från en öppen och respektfull prövning.”          
           </p>
         </div>
 
