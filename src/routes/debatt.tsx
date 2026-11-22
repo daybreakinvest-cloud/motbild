@@ -36,6 +36,7 @@ function DebattPage() {
       </section>
 
       {/* 2. BRÖDTEXT */}
+      <section className="py-20 px-6 max-w-4xl mx-auto space-y-12 font-serif">
       <div className="space-y-8">
           <h2 className="text-3xl sm:text-4xl font-bold text-[#090023]">
             Biblisk förebild och vår samtid
@@ -54,7 +55,7 @@ function DebattPage() {
                   Jesus gav lärjungarna inget bud att debattera, men vi möter honom ofta i offentliga meningsutbyten där han prövar argument och utmanar etablerade föreställningar.
                 </p>
               </div>
-
+</div>
             <div className="flex gap-4 items-start">
               <span className="font-bold text-base text-[#090023] bg-white size-8 rounded-full flex items-center justify-center shrink-0 border border-black/10">
                 2
