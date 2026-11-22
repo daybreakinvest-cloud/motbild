@@ -157,7 +157,7 @@ function ArtikelDetailPage() {
   const synligaKommentarer = omdomen.filter((r) => r.kommentar?.trim());
 
   return (
-    <SiteLayout>
+    <SiteLayout seoTitle={artikel.titel} seoDescription={artikel.ingress ?? artikel.sammanfattning ?? undefined}>
       <div className="py-12 md:py-16 px-6 max-w-3xl mx-auto font-serif">
         {/* BAKÅTPIL */}
         <div className="mb-8">
