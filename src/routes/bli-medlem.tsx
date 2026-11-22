@@ -58,6 +58,18 @@ function BliMedlemPage() {
     });
 
     if (!error) {
+      if (!error) {
+      setSkickat(true);
+      // Skicka bekräftelsemejl och notis
+      fetch("/api/notify", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          typ: "MEDLEM",
+          data: { fornamn, efternamn, epost, telefon, ort, engagemang: valdaEngagemang },
+        }),
+      });
+    } else {
       setSkickat(true);
     } else {
       alert("Något gick fel vid inskickandet. Försök igen.");
