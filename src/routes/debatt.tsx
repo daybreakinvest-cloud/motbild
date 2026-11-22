@@ -27,10 +27,10 @@ function DebattPage() {
             PEDAGOGISK UTBILDNINGSFORM
           </div>
           <h1 className="text-4xl sm:text-4xl md:text-5xl font-bold leading-tight text-[#F9F8F5]">
-            Varför offentliga debatter?
+            Sanningen gömmer sig inte. Varför skulle vi?
           </h1>
           <p className="text-xl sm:text-2xl text-[#F9F8F5] max-w-2xl mx-auto leading-relaxed">
-            Målet är inte att utse vinnare eller förlorare, utan att ge publiken möjlighet att höra båda perspektiven, själva tänka, studera och pröva argumenten mot Bibeln. Debatten är verktyget för att nå dit.
+            Debatten utser inte vinnare eller förlorare, utan är verktyget som ger publiken möjlighet att lyssna, tänka, studera och pröva. 
           </p>
         </div>
       </section>
