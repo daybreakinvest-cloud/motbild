@@ -19,17 +19,17 @@ function OmOssPage() {
           </h1>
           <p className="text-xl sm:text-2xl text-[#F9F8F5] max-w-2xl mx-auto leading-relaxed">
             På ett bredare plan vill vi uppmuntra till kritiskt tänkande genom utbildning, debatter och samtal.
-            Mer specifikt är syftet att lyfta fram ett bibliskt unitariskt perspektiv och ge människor möjlighet
-            att kontrastera det mot den traditionella synen på Gud, på ett respektfullt sätt.
+            Mer specifikt är syftet att på ett respektfullt sätt lyfta fram ett bibliskt unitariskt perspektiv och ge människor möjlighet
+            att kontrastera det mot den traditionella synen på Gud.
           </p>
         </div>
       </section>
 
-      {/* 2. VÅR TROSGRUND */}
+      {/* 2. TROSGRUND */}
       <section className="py-20 px-6 max-w-5xl mx-auto font-serif">
         <div className="text-center mb-12">
           <h2 className="text-3xl sm:text-4xl font-bold text-[#090023]">
-            Vår trosgrund
+            Trosgrund
           </h2>
         </div>
 
@@ -77,7 +77,7 @@ function OmOssPage() {
         <div className="mt-8 p-6 rounded-2xl bg-[#f3f0ed] border border-black/10 text-center text-lg text-[#090023]">
           <p>
             Vi tror att Treenighetsläran är en mänsklig konstruktion som utvecklats över tid genom så kallad progressiv uppenbarelse.
-            Biblisk unitarisk tro berör fler områden, vilket återspeglas i artiklarna – men vårt uppdrag är koncentrerat till kärnan i tron.
+            Biblisk unitarisk tro berör fler områden, vilket återspeglas i artiklarna – uppdraget är koncentrerat till kärnan i tron.
           </p>
         </div>
       </section>
@@ -87,32 +87,11 @@ function OmOssPage() {
         <div className="max-w-4xl mx-auto space-y-12">
           <div>
             <span className="text-xs font-bold uppercase tracking-widest text-[#F9F8F5] bg-[#090023] px-3.5 py-1.5 rounded-full inline-block mb-4">
-              BAKGRUND &amp; ERFARENHET
-            </span>
-            <h2 className="text-3xl sm:text-4xl font-bold text-[#090023]">
-              Var inte en ja-sägare – vägen till frihet
-            </h2>
-            <div className="text-base text-[#090023] space-y-4 mt-6 leading-relaxed">
-              <p>
-                Jag har varit troende i 37 år. Från den dag jag kom till tro hade jag en längtan efter sanningen i Guds Ord.
-                Som flitig bibelstudent krockade mina upptäckter ofta med mitt samfunds traditionella tolkningar.
-              </p>
-              <p>
-                År 2011 började jag för första gången på allvar studera Treenigheten och Jesu gudom. Syftet var från början
-                att en gång för alla bevisa Treenighetens riktighet. Istället ledde det mig till en helt annan plats.
-              </p>
-              <p>
-                Jag såg hur läran om Treenigheten var ohållbar i ljuset av grundtexterna. Jesus är inte preexistent i traditionell
-                mening och inte Gud i samma mening som Fadern. Även om upptäckten först skapade tomhet och sorg, ledde den i
-                förlängningen till en enorm frihet och glädje. Jesus hade inte blivit mindre – han hade blivit större och sannare.
-              </p>
-            </div>
-          </div>
-
-          {/* De 4 besluten */}
+              
+              {/* De 4 besluten */}
           <div className="bg-[#f3f0ed] rounded-3xl p-8 sm:p-10 border border-black/10 space-y-6">
             <h3 className="text-xl font-bold text-[#090023]">
-              Jag beslutar:
+              Vi är fast beslutna att:
             </h3>
 
             <div className="space-y-4">
