@@ -20,6 +20,99 @@ const EN_TO_SV: Record<string, string> = Object.fromEntries(
   Object.entries(SV_TO_EN).map(([sv, en]) => [en, sv])
 );
 
+const PAGE_SEO: Record<string, { title: string; description: string }> = {
+  "/": {
+    title: "Motbild – Bibliskt Unitariskt Nätverk",
+    description:
+      "Bibliskt unitariskt nätverk för självständig bibelforskning, språklig exegetik och öppna teologiska debatter i Sverige.",
+  },
+  "/en": {
+    title: "Motbild – Biblical Unitarian Network",
+    description:
+      "Biblical Unitarian network for independent biblical scholarship, linguistic exegesis, and open theological debate.",
+  },
+  "/artiklar": {
+    title: "Artiklar | Motbild",
+    description:
+      "Akademiska och exegetiska artiklar utifrån ett bibliskt unitariskt perspektiv – grundtextanalys fri från kyrkotradition.",
+  },
+  "/en/articles": {
+    title: "Articles | Motbild",
+    description:
+      "Scholarly and exegetical articles from a Biblical Unitarian perspective—original-text analysis free from church tradition.",
+  },
+  "/om-oss": {
+    title: "Om oss | Motbild",
+    description:
+      "Vårt uppdrag, vår bibliskt unitariska trosgrund och vår övertygelse att hålla Skriften som högsta auktoritet.",
+  },
+  "/en/about": {
+    title: "About us | Motbild",
+    description:
+      "Our mission, Biblical Unitarian statement of faith, and commitment to holding Scripture as the highest authority.",
+  },
+  "/debatt": {
+    title: "Offentliga debatter | Motbild",
+    description:
+      "Varför offentliga debatter? Läs om Motbilds pedagogiska debattformat och hur en debattkväll går till.",
+  },
+  "/en/debate": {
+    title: "Public debates | Motbild",
+    description:
+      "Why public debates? Learn about Motbild’s pedagogical debate format and how a three-hour debate evening is structured.",
+  },
+  "/medarrangor": {
+    title: "Medarrangör | Motbild",
+    description:
+      "Låt er församling stå som värd för en modererad offentlig debatt om Treenigheten, Kristi gudom och Bibeln.",
+  },
+  "/en/co-host": {
+    title: "Co-host a debate | Motbild",
+    description:
+      "Partner with Motbild to host a moderated public debate in your congregation on the Trinity, Christology, and Scripture.",
+  },
+  "/bli-medlem": {
+    title: "Bli medlem | Motbild",
+    description:
+      "Ansök om avgiftsfritt medlemskap i Motbild – Bibliskt Unitariskt Nätverk och engagera dig i arbetet.",
+  },
+  "/en/join": {
+    title: "Join us | Motbild",
+    description:
+      "Apply for free membership in Motbild – Biblical Unitarian Network and contribute to research, debate, and education.",
+  },
+  "/stadgar": {
+    title: "Stadgar | Motbild",
+    description:
+      "Officiella föreningsstadgar för Motbild – Bibliskt Unitariskt Nätverk (säte: Stockholm).",
+  },
+  "/en/bylaws": {
+    title: "Bylaws | Motbild",
+    description:
+      "Official association bylaws for Motbild – Biblical Unitarian Network (registered office: Stockholm, Sweden).",
+  },
+  "/integritetspolicy": {
+    title: "Integritetspolicy | Motbild",
+    description:
+      "Information om hur Motbild behandlar personuppgifter i enlighet med dataskyddsförordningen (GDPR).",
+  },
+  "/en/privacy-policy": {
+    title: "Privacy Policy | Motbild",
+    description:
+      "Information on how the Motbild association processes personal data in accordance with the GDPR.",
+  },
+  "/cookiepolicy": {
+    title: "Cookiepolicy | Motbild",
+    description:
+      "Information om hur motbild.se använder cookies och liknande tekniker.",
+  },
+  "/en/cookie-policy": {
+    title: "Cookie Policy | Motbild",
+    description:
+      "Information on how motbild.se uses cookies and similar technologies.",
+  },
+};
+
 function getTargetPaths(pathname: string) {
   const clean = pathname.length > 1 ? pathname.replace(/\/+$/, "") : pathname;
   const isEnglish = clean === "/en" || clean.startsWith("/en/");
@@ -59,7 +152,23 @@ function upsertHeadLink(rel: string, href: string, hreflang?: string) {
   el.href = href;
 }
 
-export function SiteLayout({ children }: { children: ReactNode }) {
+function upsertMetaTag(name: string, content: string) {
+  let el = document.head.querySelector<HTMLMetaElement>(`meta[name="${name}"]`);
+  if (!el) {
+    el = document.createElement("meta");
+    el.name = name;
+    document.head.appendChild(el);
+  }
+  el.content = content;
+}
+
+interface SiteLayoutProps {
+  children: ReactNode;
+  seoTitle?: string;
+  seoDescription?: string;
+}
+
+export function SiteLayout({ children, seoTitle, seoDescription }: SiteLayoutProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [showHeader, setShowHeader] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
@@ -69,11 +178,20 @@ export function SiteLayout({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     document.documentElement.lang = isEnglish ? "en" : "sv";
-    document.title = isEnglish
-      ? "Motbild – Biblical Unitarian Network"
-      : "Motbild – Bibliskt Unitariskt Nätverk";
 
     const cleanPath = pathname.length > 1 ? pathname.replace(/\/+$/, "") : pathname;
+    const defaultSeo = PAGE_SEO[cleanPath] ?? {
+      title: isEnglish
+        ? "Motbild – Biblical Unitarian Network"
+        : "Motbild – Bibliskt Unitariskt Nätverk",
+      description: isEnglish
+        ? "Biblical Unitarian network for independent biblical scholarship, linguistic exegesis, and open theological debate."
+        : "Bibliskt unitariskt nätverk för självständig bibelforskning, språklig exegetik och öppna teologiska debatter i Sverige.",
+    };
+
+    document.title = seoTitle ? `${seoTitle} | Motbild` : defaultSeo.title;
+    upsertMetaTag("description", seoDescription || defaultSeo.description);
+
     const canonicalUrl = `${BASE_URL}${cleanPath === "/" ? "" : cleanPath}`;
     upsertHeadLink("canonical", canonicalUrl);
 
@@ -93,7 +211,7 @@ export function SiteLayout({ children }: { children: ReactNode }) {
           ?.remove();
       }
     }
-  }, [isEnglish, pathname, svPath, enPath]);
+  }, [isEnglish, pathname, svPath, enPath, seoTitle, seoDescription]);
 
   useEffect(() => {
     const handleScroll = () => {
