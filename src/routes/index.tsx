@@ -30,7 +30,7 @@ function IndexPage() {
               <BookOpen className="size-5" />
             </div>
             <h3 className="text-xl sm:text-2xl font-bold text-[#090023]">
-              Välgrundade artiklar med akademiskt djup
+              Akademiskt djup
             </h3>
             <p className="text-base text-[#090023] leading-relaxed">
               Noggrann research med referenser till grundtexter och akademiska källor.
@@ -42,10 +42,10 @@ function IndexPage() {
               <Compass className="size-5" />
             </div>
             <h3 className="text-xl sm:text-2xl font-bold text-[#090023]">
-              Perspektiv som öppnar nya dörrar
+              Nya perspektiv
             </h3>
             <p className="text-base text-[#090023] leading-relaxed">
-              En alternativ synvinkel – utmanande och befriande för den som vågar följa tanken hela vägen.
+              Befriande och utmanande och för den som vågar följa tanken hela vägen.
             </p>
           </div>
 
@@ -54,10 +54,10 @@ function IndexPage() {
               <Lightbulb className="size-5" />
             </div>
             <h3 className="text-xl sm:text-2xl font-bold text-[#090023]">
-              Slutsatser som förändrar hur du läser Bibeln
+              Slutsatser som förändrar
             </h3>
             <p className="text-base text-[#090023] leading-relaxed">
-              Välgrundade slutledningar utmanar det du tagit för givet.
+              Utmanar det du tagit för givet.
             </p>
           </div>
         </div>
