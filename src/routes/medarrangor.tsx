@@ -39,6 +39,18 @@ function MedarrangorPage() {
     });
 
     if (!error) {
+      if (!error) {
+      setSkickat(true);
+      // Skicka bekräftelsemejl och notis
+      fetch("/api/notify", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          typ: "MEDARRANGOR",
+          data: { fornamn, efternamn, epost, telefon, forsamling, ort, roll, samfund },
+        }),
+      });
+    } else {
       setSkickat(true);
     } else {
       alert("Något gick fel när förfrågan skulle skickas. Försök igen.");
