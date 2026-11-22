@@ -54,7 +54,6 @@ function DebattPage() {
                   Jesus gav lärjungarna inget bud att debattera, men vi möter honom ofta i offentliga meningsutbyten där han prövar argument och utmanar etablerade föreställningar.
                 </p>
               </div>
-            </div>
 
             <div className="flex gap-4 items-start">
               <span className="font-bold text-base text-[#090023] bg-white size-8 rounded-full flex items-center justify-center shrink-0 border border-black/10">
