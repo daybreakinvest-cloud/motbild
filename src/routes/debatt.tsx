@@ -138,7 +138,7 @@ function DebattPage() {
               Vill er församling stå som värd för en debatt?
             </h3>
             <p className="text-base text-[#090023] max-w-lg mx-auto leading-relaxed">
-              Motbild står för planering, talare, moderator och produktion. Ni öppnar dörrarna och bjuder in er församling.
+              Motbild står för planering, talare, moderator och produktion. Ni öppnar dörrarna och bjuder in.
             </p>
             <div className="pt-2">
               <Link
