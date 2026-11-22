@@ -136,19 +136,19 @@ function ArtiklarIndexPage() {
 
           <div className="bg-white border border-black/10 rounded-2xl p-7 shadow-xs space-y-3">
             <h3 className="text-xl sm:text-2xl font-bold text-[#090023]">
-              Saklig prövning och kritik
+              Utmaning och omdöme
             </h3>
             <p className="text-base leading-relaxed text-[#090023]">
-              Kritik av metod, texttrohet, logik och grundtextreferenser är välkommen. Att enbart hänvisa till annan samfundstradition eller dogmatiska formler tillför inget och beaktas inte.
+              Texterna vill utmana läsaren att se bortom motiverat tänkande som hindrar Skriftens egen röst. Nederst kan du betygsätta undersökningen (1-5) och lämna ett kort omdöme om dess sakliga kvalitet.
             </p>
           </div>
 
           <div className="bg-white border border-black/10 rounded-2xl p-7 shadow-xs space-y-3">
             <h3 className="text-xl sm:text-2xl font-bold text-[#090023]">
-              Utmaning och omdöme
+              Saklig prövning och kritik
             </h3>
             <p className="text-base leading-relaxed text-[#090023]">
-              Texterna vill utmana läsaren att se bortom motiverat tänkande som hindrar Skriftens egen röst. Nederst kan du betygsätta undersökningen (1-5) och lämna ett kort omdöme om dess sakliga kvalitet.
+              Kritik av metod, texttrohet, logik och grundtextreferenser är välkommen. Att enbart hänvisa till annan samfundstradition eller dogmatiska formler tillför inget och beaktas inte.
             </p>
           </div>
 
