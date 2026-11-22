@@ -115,28 +115,51 @@ function ArtiklarIndexPage() {
 
       {/* HUVUDINNEHÅLL */}
       <section className="py-12 px-6 max-w-6xl mx-auto font-serif space-y-12">
-        {/* FÖRTEXT */}
-        <div className="bg-white border border-black/10 rounded-3xl p-8 sm:p-10 shadow-xs space-y-4 text-base leading-relaxed text-[#090023]">
-          <p>
-            Artiklarna utgår från ett bibliskt unitariskt perspektiv (
-            <button
-              type="button"
-              onClick={() => setVisaOmOssModal(true)}
-              className="underline cursor-pointer hover:opacity-75"
-            >
-              här
-            </button>
-            ) och syftar till sakligt sanningssökande: självständig bibelforskning, språklig exegetik och källkritisk analys fri från kyrkotraditionens förutfattade meningar.
-          </p>
-          <p>
-            Kritik av metod, texttrohet, logik och grundtextreferenser är välkommen. Att enbart hänvisa till annan samfundstradition eller dogmatiska formler tillför inget och beaktas inte.
-          </p>
-          <p>
-            Texterna vill utmana läsaren att se bortom motiverat tänkande som hindrar Skriftens egen röst. Nederst kan du betygsätta undersökningen (1-5) och lämna ett kort omdöme om dess sakliga kvalitet.
-          </p>
-          <p>
-            Varje artikel kräver tiotals timmars forsknings- och skrivarbete och produceras helt oberoende. Vill du stödja fortsatt fördjupning och publicering finns möjlighet till ett personligt bidrag i anslutning till artikeln.
-          </p>
+        {/* FÖRTEXT SOM FYRA KORT */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="bg-white border border-black/10 rounded-2xl p-7 shadow-xs space-y-3">
+            <h3 className="text-xl sm:text-2xl font-bold text-[#090023]">
+              Perspektiv och metod
+            </h3>
+            <p className="text-base leading-relaxed text-[#090023]">
+              Artiklarna utgår från ett bibliskt unitariskt perspektiv (
+              <button
+                type="button"
+                onClick={() => setVisaOmOssModal(true)}
+                className="underline cursor-pointer hover:opacity-75"
+              >
+                här
+              </button>
+              ) och syftar till sakligt sanningssökande: självständig bibelforskning, språklig exegetik och källkritisk analys fri från kyrkotraditionens förutfattade meningar.
+            </p>
+          </div>
+
+          <div className="bg-white border border-black/10 rounded-2xl p-7 shadow-xs space-y-3">
+            <h3 className="text-xl sm:text-2xl font-bold text-[#090023]">
+              Saklig prövning och kritik
+            </h3>
+            <p className="text-base leading-relaxed text-[#090023]">
+              Kritik av metod, texttrohet, logik och grundtextreferenser är välkommen. Att enbart hänvisa till annan samfundstradition eller dogmatiska formler tillför inget och beaktas inte.
+            </p>
+          </div>
+
+          <div className="bg-white border border-black/10 rounded-2xl p-7 shadow-xs space-y-3">
+            <h3 className="text-xl sm:text-2xl font-bold text-[#090023]">
+              Utmaning och omdöme
+            </h3>
+            <p className="text-base leading-relaxed text-[#090023]">
+              Texterna vill utmana läsaren att se bortom motiverat tänkande som hindrar Skriftens egen röst. Nederst kan du betygsätta undersökningen (1-5) och lämna ett kort omdöme om dess sakliga kvalitet.
+            </p>
+          </div>
+
+          <div className="bg-white border border-black/10 rounded-2xl p-7 shadow-xs space-y-3">
+            <h3 className="text-xl sm:text-2xl font-bold text-[#090023]">
+              Oberoende forskning och stöd
+            </h3>
+            <p className="text-base leading-relaxed text-[#090023]">
+              Varje artikel kräver tiotals timmars forsknings- och skrivarbete och produceras helt oberoende. Vill du stödja fortsatt fördjupning och publicering finns möjlighet till ett personligt bidrag i anslutning till artikeln.
+            </p>
+          </div>
         </div>
 
         {/* SÖKRUTA */}
