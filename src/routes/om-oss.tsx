@@ -25,12 +25,17 @@ function OmOssPage() {
             </p>
           </div>
 
-          <div className="mx-auto size-64 sm:size-72 rounded-full bg-white overflow-hidden shrink-0">
-            <img
-              src="/peter_abramsgard_portrattbild.png"
-              alt="Peter Abramsgård"
-              className="w-full h-full object-contain"
-            />
+         <div className="flex flex-col items-center gap-4 mx-auto">
+            <div className="size-64 sm:size-72 rounded-full bg-white overflow-hidden shrink-0">
+              <img
+                src="/peter_abramsgard_portrattbild.png"
+                alt="Peter Abramsgård"
+                className="w-full h-full object-contain"
+              />
+            </div>
+            <p className="text-base text-[#F9F8F5] text-center">
+              Peter Abramsgård - Direktor
+            </p>
           </div>
         </div>
       </section>
