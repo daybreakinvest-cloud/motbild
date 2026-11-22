@@ -157,7 +157,7 @@ function EnglishArticleDetailPage() {
   const visibleComments = reviews.filter((r) => (r.kommentar_en ?? r.kommentar)?.trim());
 
   return (
-    <SiteLayout>
+    <SiteLayout seoTitle={article.titel_en ?? undefined} seoDescription={article.ingress_en ?? article.sammanfattning_en ?? undefined}>
       <div className="py-12 md:py-16 px-6 max-w-3xl mx-auto font-serif">
         {/* BACK LINK */}
         <div className="mb-8">
