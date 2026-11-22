@@ -10,18 +10,28 @@ function OmOssPage() {
     <SiteLayout>
       {/* 1. HERO SECTION */}
       <section className="bg-[#090023] text-[#F9F8F5] py-20 md:py-24 px-6 border-b border-white/10 font-serif">
-        <div className="max-w-4xl mx-auto text-center space-y-5">
-          <div className="inline-block px-4 py-1.5 rounded-full border border-white/20 text-xs uppercase tracking-widest text-[#F9F8F5]">
-            IDENTITET &amp; UPPDRAG
+        <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-[1fr_auto] items-center gap-10">
+          <div className="text-center md:text-left space-y-5">
+            <div className="inline-block px-4 py-1.5 rounded-full border border-white/20 text-xs uppercase tracking-widest text-[#F9F8F5]">
+              IDENTITET &amp; UPPDRAG
+            </div>
+            <h1 className="text-4xl sm:text-4xl md:text-5xl font-bold leading-tight text-[#F9F8F5]">
+              Vårt uppdrag och vår tro
+            </h1>
+            <p className="text-xl sm:text-2xl text-[#F9F8F5] max-w-2xl mx-auto md:mx-0 leading-relaxed">
+              På ett bredare plan vill vi uppmuntra till kritiskt tänkande genom utbildning, debatter och samtal.
+              Mer specifikt är syftet att på ett respektfullt sätt lyfta fram ett bibliskt unitariskt perspektiv och ge människor möjlighet
+              att kontrastera det mot den traditionella synen på Gud.
+            </p>
           </div>
-          <h1 className="text-4xl sm:text-4xl md:text-5xl font-bold leading-tight text-[#F9F8F5]">
-            Vårt uppdrag och vår tro
-          </h1>
-          <p className="text-xl sm:text-2xl text-[#F9F8F5] max-w-2xl mx-auto leading-relaxed">
-            På ett bredare plan vill vi uppmuntra till kritiskt tänkande genom utbildning, debatter och samtal.
-            Mer specifikt är syftet att på ett respektfullt sätt lyfta fram ett bibliskt unitariskt perspektiv och ge människor möjlighet
-            att kontrastera det mot den traditionella synen på Gud.
-          </p>
+
+          <div className="mx-auto size-64 sm:size-72 rounded-full bg-white overflow-hidden shrink-0">
+            <img
+              src="/peter_abramsgard_portrattbild.png"
+              alt="Peter Abramsgård"
+              className="w-full h-full object-contain"
+            />
+          </div>
         </div>
       </section>
 
