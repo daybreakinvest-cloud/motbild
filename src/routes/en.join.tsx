@@ -87,10 +87,10 @@ function EnglishJoinPage() {
       <section className="bg-[#090023] text-[#F9F8F5] py-20 md:py-24 px-6 border-b border-white/10 font-serif text-center">
         <div className="max-w-4xl mx-auto space-y-5">
           <h1 className="text-4xl sm:text-4xl md:text-5xl font-bold leading-tight text-[#F9F8F5]">
-            Application for membership
+            Become a member
           </h1>
           <p className="text-xl sm:text-2xl text-[#F9F8F5] max-w-2xl mx-auto leading-relaxed">
-            {/* Underrubrik läggs till i nästa fas */}
+            {/* Subtitle will be added in the next phase */}
           </p>
         </div>
       </section>
@@ -100,12 +100,12 @@ function EnglishJoinPage() {
         <div className="bg-white border border-black/10 rounded-2xl p-6 sm:p-8 space-y-4 mb-8 text-base text-[#090023] font-serif leading-relaxed">
           <p>Motbild is built by people.</p>
           <p>
-            Whether your service lies in education, research, debate, practical support,
-            administration, or media, your experience and ambitions matter.
+            Whether your service lies within education, research, debate, practical service,
+            administration, or media, your experience and ambitions are vital.
           </p>
-          <p>Together, we build steadily, credibly, and for the long term.</p>
+          <p>Together, we build stably, credibly, and for the long term.</p>
           <p className="font-semibold text-[#090023]">
-            More importantly, you share our faith and accept our bylaws.
+            Even more important is that you share our faith and accept the bylaws.
           </p>
         </div>
 
@@ -153,7 +153,7 @@ function EnglishJoinPage() {
                 value={other}
                 onChange={(e) => setOther(e.target.value)}
                 className="w-full bg-[#f3f0ed] border border-black/15 rounded-xl px-4 py-2.5 text-xs text-[#090023] font-serif outline-none focus:border-[#090023]"
-                placeholder="Additional skills or experience..."
+                placeholder="Other competence..."
               />
             </div>
 
@@ -174,11 +174,11 @@ function EnglishJoinPage() {
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
                 <div>
-                  <label className="block text-xs font-sans font-semibold uppercase tracking-wider text-[#090023] mb-1">Street address *</label>
+                  <label className="block text-xs font-sans font-semibold uppercase tracking-wider text-[#090023] mb-1">Address *</label>
                   <input required value={address} onChange={(e) => setAddress(e.target.value)} className="w-full bg-[#f3f0ed] border border-black/15 rounded-xl px-4 py-2 text-xs text-[#090023] font-serif outline-none focus:border-[#090023]" />
                 </div>
                 <div>
-                  <label className="block text-xs font-sans font-semibold uppercase tracking-wider text-[#090023] mb-1">City / Town *</label>
+                  <label className="block text-xs font-sans font-semibold uppercase tracking-wider text-[#090023] mb-1">City *</label>
                   <input required value={city} onChange={(e) => setCity(e.target.value)} className="w-full bg-[#f3f0ed] border border-black/15 rounded-xl px-4 py-2 text-xs text-[#090023] font-serif outline-none focus:border-[#090023]" />
                 </div>
               </div>

@@ -107,7 +107,7 @@ function EnglishBylawsPage() {
       <section className="bg-[#090023] text-[#F9F8F5] py-20 md:py-24 px-6 border-b border-white/10 font-serif text-center">
         <div className="max-w-4xl mx-auto space-y-4">
           <div className="inline-block px-4 py-1.5 rounded-full border border-white/20 text-xs uppercase tracking-widest text-[#F9F8F5]">
-            OFFICIAL ASSOCIATION BYLAWS
+            Official association bylaws
           </div>
           <h1 className="text-4xl sm:text-4xl md:text-5xl font-bold leading-tight text-[#F9F8F5]">
             Bylaws of Motbild

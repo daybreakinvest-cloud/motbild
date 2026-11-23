@@ -50,7 +50,7 @@ function EnglishCoHostPage() {
         }),
       });
     } else {
-      alert("Something went wrong while sending your inquiry. Please try again.");
+      alert("Something went wrong while submitting your inquiry. Please try again.");
     }
     setLaddar(false);
   }
@@ -64,7 +64,7 @@ function EnglishCoHostPage() {
             CHURCH COLLABORATION
           </div>
           <h1 className="text-4xl sm:text-4xl md:text-5xl font-bold leading-tight text-[#F9F8F5]">
-            Break the negative trend and create real value
+            Create new value and break a negative trend
           </h1>
           <p className="text-xl sm:text-2xl text-[#F9F8F5] max-w-2xl mx-auto leading-relaxed">
             When did your members last examine why they believe what they believe?
@@ -76,31 +76,27 @@ function EnglishCoHostPage() {
       <section className="py-20 px-6 max-w-4xl mx-auto space-y-16 font-serif">
         <div className="space-y-6 text-[#090023] text-base leading-relaxed">
           <p>
-            Studies show that Bible reading is declining, especially among younger generations. When questions about God
-            and faith arise, many seek answers online, in podcasts, and on social media—often without guidance from
-            the local congregation.
-          </p>
-          <p className="font-bold text-[#090023]">
-            It does not have to be this way.
+            Studies show that Bible reading is declining, especially among younger generations. When questions about God and faith
+            arise, many seek answers on the internet, in podcasts, and across social media—often without guidance from the
+            local congregation.
           </p>
           <p>
-            We are convinced that the church needs more settings where believers are encouraged to open the Bible,
+            It does not have to be that way. We are convinced that the church needs more contexts where believers are encouraged to open the Bible,
             test arguments, and seek the truth for themselves.
           </p>
         </div>
 
-        {/* 3 CARDS */}
+        {/* 3 CARDS: Benefits for the congregation */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div className="bg-white border border-black/10 rounded-2xl p-7 shadow-xs space-y-3">
             <div className="size-10 rounded-xl bg-[#f3f0ed] text-[#090023] flex items-center justify-center mb-2">
               <Flame className="size-5 text-[#090023]" />
             </div>
             <h3 className="text-xl sm:text-2xl font-bold text-[#090023]">
-              Spark hunger quickly
+              Create hunger
             </h3>
             <p className="text-base text-[#090023] leading-relaxed">
-              Motbild arranges moderated public debates on the most foundational questions: the Trinity, the divinity of Christ,
-              and pre-existence—questions that simmer beneath the surface in every congregation.
+              Motbild arranges moderated public debates on questions that simmer beneath the surface in every congregation.
             </p>
           </div>
 
@@ -109,11 +105,11 @@ function EnglishCoHostPage() {
               <Users className="size-5 text-[#090023]" />
             </div>
             <h3 className="text-xl sm:text-2xl font-bold text-[#090023]">
-              Fill the room with seekers
+              Welcome seekers
             </h3>
             <p className="text-base text-[#090023] leading-relaxed">
-              An event centered on these questions generates an appetite that ordinary church evenings rarely do. People come
-              because they want to know—not because they feel obligated.
+              An event centered on these questions creates an appetite that ordinary church evenings rarely do. People
+              come because they want to know—not because they feel obligated.
             </p>
           </div>
 
@@ -122,24 +118,24 @@ function EnglishCoHostPage() {
               <Building2 className="size-5 text-[#090023]" />
             </div>
             <h3 className="text-xl sm:text-2xl font-bold text-[#090023]">
-              You open the doors
+              Open the doors
             </h3>
             <p className="text-base text-[#090023] leading-relaxed">
-              Motbild is responsible for planning, moderator, speakers, and production. You open your doors and welcome
-              your congregation and local community.
+              Motbild is responsible for planning, moderator, speakers, and production. You open the doors and welcome
+              the congregation and the local community.
             </p>
           </div>
         </div>
 
-        {/* DIVISION OF RESPONSIBILITIES */}
+        {/* DIVISION OF WORK AND RESPONSIBILITIES */}
         <div className="bg-[#f3f0ed] rounded-3xl p-8 sm:p-10 border border-black/10 space-y-6">
           <h2 className="text-3xl sm:text-4xl font-bold text-[#090023]">
-            Dare to do something that makes a profound difference
+            Dare to make a difference
           </h2>
           <p className="text-base leading-relaxed text-[#090023]">
-            The purpose is not to declare winners or losers, but to spark questions, ignite a hunger for God’s Word,
-            and demonstrate that Christians can deeply disagree and still meet one another with respect, humility, and love.
-            That is leadership. That is courage. And that is precisely what Christianity in Sweden needs right now.
+            Contribute to awakening questions, igniting a hunger for God’s word, and
+            showing that Christians can disagree deeply yet still meet one another with respect, humility, and love.
+            That is leadership. That is courage. And that is precisely what Swedish Christianity needs right now.
           </p>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-4 border-t border-black/10 text-base">
@@ -149,32 +145,32 @@ function EnglishCoHostPage() {
                 <li>Opens its premises for the evening</li>
                 <li>Invites its members and local community</li>
                 <li>Covers the proponent’s honorarium</li>
-                <li>Provides refreshments and hospitality</li>
+                <li>Responsible for refreshments and hosting</li>
               </ul>
             </div>
             <div className="bg-white p-5 rounded-xl border border-black/5 space-y-2">
               <span className="text-xs font-bold uppercase tracking-wider text-[#090023] block">MOTBILD’S ROLE:</span>
               <ul className="space-y-1 text-[#090023] list-disc list-inside leading-relaxed">
-                <li>Handles planning and structure</li>
+                <li>Responsible for planning and structure</li>
                 <li>Provides the opponent</li>
                 <li>Arranges an independent moderator</li>
-                <li>Coordinates filming and technical production</li>
+                <li>Responsible for filming &amp; technical coordination</li>
               </ul>
             </div>
           </div>
         </div>
 
         {/* 4. FORM: EXPRESSION OF INTEREST */}
-        <div id="register" className="pt-8">
+        <div id="anmalan" className="pt-8">
           <div className="text-center mb-8">
             <span className="text-xs font-bold uppercase tracking-widest text-[#F9F8F5] bg-[#090023] px-3.5 py-1.5 rounded-full inline-block">
               EXPRESSION OF INTEREST
             </span>
             <h2 className="text-3xl sm:text-4xl font-bold text-[#090023] mt-3">
-              Our congregation would like to co-host
+              Our congregation wants to serve as co-host
             </h2>
             <p className="text-base text-[#090023] mt-2 leading-relaxed">
-              Complete the form below and we will get in touch to plan dates and details.
+              Fill in the form below and we will get in touch to coordinate dates and details.
             </p>
           </div>
 
@@ -189,6 +185,7 @@ function EnglishCoHostPage() {
             </div>
           ) : (
             <form onSubmit={handleSubmit} className="bg-white border border-black/10 rounded-3xl p-8 sm:p-10 shadow-sm space-y-6">
+              {/* Contact person */}
               <div>
                 <h3 className="text-xl font-bold text-[#090023] mb-4">
                   Contact person
@@ -206,7 +203,7 @@ function EnglishCoHostPage() {
 
                 <div className="mb-4">
                   <label className="block text-xs font-semibold uppercase tracking-widest text-[#090023] mb-1">ROLE IN CONGREGATION *</label>
-                  <input required value={roll} onChange={(e) => setRoll(e.target.value)} placeholder="e.g. Senior Pastor, Elder, Board Chair" className="w-full bg-[#f3f0ed] border border-black/15 rounded-xl px-4 py-2.5 text-xs text-[#090023] outline-none focus:border-[#090023]" />
+                  <input required value={roll} onChange={(e) => setRoll(e.target.value)} placeholder="e.g. Lead Pastor, Elder, Board Chair" className="w-full bg-[#f3f0ed] border border-black/15 rounded-xl px-4 py-2.5 text-xs text-[#090023] outline-none focus:border-[#090023]" />
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -221,6 +218,7 @@ function EnglishCoHostPage() {
                 </div>
               </div>
 
+              {/* Congregation */}
               <div className="pt-4 border-t border-black/10">
                 <h3 className="text-xl font-bold text-[#090023] mb-4">
                   The congregation
@@ -237,11 +235,12 @@ function EnglishCoHostPage() {
                   </div>
                   <div>
                     <label className="block text-xs font-semibold uppercase tracking-widest text-[#090023] mb-1">DENOMINATION</label>
-                    <input value={samfund} onChange={(e) => setSamfund(e.target.value)} placeholder="e.g. Pentecostal, Evangelical, Free Church, Independent" className="w-full bg-[#f3f0ed] border border-black/15 rounded-xl px-4 py-2.5 text-xs text-[#090023] outline-none focus:border-[#090023]" />
+                    <input value={samfund} onChange={(e) => setSamfund(e.target.value)} placeholder="e.g. Pentecostal, EFK, SAM, Independent" className="w-full bg-[#f3f0ed] border border-black/15 rounded-xl px-4 py-2.5 text-xs text-[#090023] outline-none focus:border-[#090023]" />
                   </div>
                 </div>
               </div>
 
+              {/* Consent */}
               <div className="pt-2">
                 <label className="flex items-start gap-2.5 text-xs text-[#090023] cursor-pointer">
                   <input
@@ -252,7 +251,7 @@ function EnglishCoHostPage() {
                     className="mt-0.5 size-4 accent-[#090023]"
                   />
                   <span>
-                    I have read and agree to Motbild processing the personal data I submit in order to handle our co-hosting inquiry.
+                    I have reviewed and agree to Motbild processing the personal data I provide in order to process our inquiry regarding co-hosting.
                   </span>
                 </label>
               </div>
@@ -263,7 +262,7 @@ function EnglishCoHostPage() {
                 className="w-full h-12 bg-[#090023] hover:bg-black text-[#F9F8F5] rounded-xl font-bold text-xs uppercase tracking-widest flex items-center justify-center gap-2 transition-all cursor-pointer shadow-xs"
               >
                 <Send className="size-4 text-[#F9F8F5]" />
-                {laddar ? "SENDING..." : "SEND INQUIRY"}
+                {laddar ? "SENDING..." : "SUBMIT EXPRESSION OF INTEREST"}
               </button>
             </form>
           )}

@@ -30,22 +30,22 @@ const DEBATE_SCHEDULE = [
   {
     time: "19:20–19:40",
     stage: "Refreshment break & reflection",
-    description: "Break for conversation, renewed energy, and writing down questions from the audience.",
+    description: "Break for conversation, renewed energy, and the formulation of written questions from the audience.",
   },
   {
     time: "19:40–20:10",
-    stage: "Cross-examination between the debaters",
-    description: "Brief, incisive questions and direct answers under the moderator’s leadership.",
+    stage: "Cross-examination between debaters",
+    description: "Brief, incisive questions and direct answers under the moderator’s direction.",
   },
   {
     time: "20:10–20:45",
     stage: "Audience questions",
-    description: "The moderator collects questions from the audience and allocates time fairly between both sides.",
+    description: "The moderator collects questions from the audience and allocates speaking time fairly between both sides.",
   },
   {
     time: "20:45–21:00",
     stage: "Closing statements & conclusion",
-    description: "Summarizing arguments and final remarks to the congregation and viewers.",
+    description: "Summary arguments and concluding message to the congregation and viewers.",
   },
 ];
 
@@ -59,46 +59,70 @@ function EnglishDebatePage() {
             PEDAGOGICAL EDUCATIONAL FORMAT
           </div>
           <h1 className="text-4xl sm:text-4xl md:text-5xl font-bold leading-tight text-[#F9F8F5]">
-            Why public debates?
+            Truth does not hide. Why should we?
           </h1>
           <p className="text-xl sm:text-2xl text-[#F9F8F5] max-w-2xl mx-auto leading-relaxed">
-            The debate is not the goal—it is the instrument. The goal is to help the audience think for themselves,
-            study, and test the arguments against the Bible.
+            Debate does not declare winners or losers; it is the instrument that affords the audience the opportunity to listen, think, study, and examine.
           </p>
         </div>
       </section>
 
       {/* 2. BODY TEXT */}
       <section className="py-20 px-6 max-w-4xl mx-auto space-y-12 font-serif">
-        <div className="space-y-6 text-[#090023] text-base leading-relaxed">
+        <div className="space-y-8">
           <h2 className="text-3xl sm:text-4xl font-bold text-[#090023]">
-            Swedish Christianity and open dialogue
+            Biblical precedent and our contemporary age
           </h2>
-          <p>
-            In Sweden, we are unaccustomed to public debate. We often prefer conversation, consensus, and agreement.
-            Within Christendom, formal debates have also become rare, particularly regarding the most controversial
-            theological questions. At the same time, we live in a society where people daily encounter competing
-            perspectives through books, podcasts, YouTube, and social media.
-          </p>
-          <p>
-            Jesus did not give his disciples an explicit command to hold formal debates. Nor did he give any command
-            to write books, produce films, or build websites. Yet we repeatedly encounter Jesus in public exchanges
-            where he tests arguments, asks questions, and challenges established assumptions.
-          </p>
-          <p>
-            Paul reasoned with the Jews in the synagogues and engaged philosophers on the Areopagus in Athens. The early
-            Christian mission was not marked by silence in the face of differing perspectives, but by an open defense
-            and an open examination of the faith.
-          </p>
+
+          <div className="bg-[#f3f0ed] rounded-3xl p-8 sm:p-10 border border-black/10 space-y-6">
+            <div className="flex gap-4 items-start">
+              <span className="font-bold text-base text-[#090023] bg-white size-8 rounded-full flex items-center justify-center shrink-0 border border-black/10">
+                1
+              </span>
+              <div>
+                <h3 className="font-bold text-xl sm:text-2xl text-[#090023]">
+                  The example of Jesus
+                </h3>
+                <p className="text-base text-[#090023] mt-1 leading-relaxed">
+                  Jesus gave his disciples no command to debate, yet we repeatedly encounter him in public exchanges where he examines arguments and challenges established assumptions.
+                </p>
+              </div>
+            </div>
+
+            <div className="flex gap-4 items-start">
+              <span className="font-bold text-base text-[#090023] bg-white size-8 rounded-full flex items-center justify-center shrink-0 border border-black/10">
+                2
+              </span>
+              <div>
+                <h3 className="font-bold text-xl sm:text-2xl text-[#090023]">
+                  Paul and the early mission
+                </h3>
+                <p className="text-base text-[#090023] mt-1 leading-relaxed">
+                  Paul reasoned in the synagogues and on the Areopagus. The early mission was characterized by open defence and open examination of the faith.
+                </p>
+              </div>
+            </div>
+
+            <div className="flex gap-4 items-start">
+              <span className="font-bold text-base text-[#090023] bg-white size-8 rounded-full flex items-center justify-center shrink-0 border border-black/10">
+                3
+              </span>
+              <div>
+                <h3 className="font-bold text-xl sm:text-2xl text-[#090023]">
+                  Swedish Christianity today
+                </h3>
+                <p className="text-base text-[#090023] mt-1 leading-relaxed">
+                  In Sweden, we are unaccustomed to public debate and prefer conversation and consensus. Even within Christianity, formal debates have become rare, despite the fact that we encounter competing perspectives daily in books, podcasts, and social media.
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
 
         {/* QUOTE BOX */}
         <div className="rounded-3xl bg-[#090023] text-[#F9F8F5] p-8 sm:p-10 border border-white/10 shadow-lg text-center space-y-4">
           <p className="text-xl sm:text-2xl italic text-[#F9F8F5] leading-relaxed">
             “We are convinced that the truth has nothing to fear from an open and respectful examination.”
-          </p>
-          <p className="text-base text-[#F9F8F5]/90 leading-relaxed max-w-2xl mx-auto">
-            The purpose is not to declare winners or losers, but to give the audience the opportunity to hear both perspectives.
           </p>
         </div>
 

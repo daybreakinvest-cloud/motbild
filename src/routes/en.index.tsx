@@ -9,7 +9,7 @@ export const Route = createFileRoute("/en/")({
 function EnglishIndexPage() {
   return (
     <SiteLayout>
-      {/* 1. HERO SECTION */}
+      {/* 1. HERO SECTION (BILDLÖS, CENTRERAD) */}
       <section className="w-full bg-[#090023] border-b border-white/10 py-20 md:py-28 px-6">
         <div className="max-w-4xl mx-auto text-center space-y-6">
           <h1 className="text-4xl sm:text-4xl md:text-5xl font-serif font-bold text-[#F9F8F5] leading-tight">
@@ -17,7 +17,7 @@ function EnglishIndexPage() {
           </h1>
 
           <p className="max-w-2xl mx-auto text-xl sm:text-2xl font-serif text-[#F9F8F5]/90 leading-relaxed">
-            Do not let Church traditions dictate what you should believe about God. Pay the price, go against the current. It tastes far better than it costs.
+            Do not let church traditions dictate what you should believe about God. Pay the price, go against the current. It tastes far better than it costs.
           </p>
         </div>
       </section>
@@ -30,10 +30,10 @@ function EnglishIndexPage() {
               <BookOpen className="size-5" />
             </div>
             <h3 className="text-xl sm:text-2xl font-bold text-[#090023]">
-              Well-founded articles with academic depth
+              Academic depth
             </h3>
             <p className="text-base text-[#090023] leading-relaxed">
-              Thorough research with references to original texts and academic sources.
+              Thorough research with references to original texts and scholarly sources.
             </p>
           </div>
 
@@ -42,10 +42,10 @@ function EnglishIndexPage() {
               <Compass className="size-5" />
             </div>
             <h3 className="text-xl sm:text-2xl font-bold text-[#090023]">
-              Perspectives that open new doors
+              New perspectives
             </h3>
             <p className="text-base text-[#090023] leading-relaxed">
-              An alternative viewpoint—challenging and liberating for those who dare to follow the thought all the way.
+              Liberating and challenging for those who dare to follow the thought all the way.
             </p>
           </div>
 
@@ -54,10 +54,10 @@ function EnglishIndexPage() {
               <Lightbulb className="size-5" />
             </div>
             <h3 className="text-xl sm:text-2xl font-bold text-[#090023]">
-              Conclusions that transform how you read the Bible
+              Conclusions that transform
             </h3>
             <p className="text-base text-[#090023] leading-relaxed">
-              Well-founded reasoning challenges what you have taken for granted.
+              Challenges what you have taken for granted.
             </p>
           </div>
         </div>
