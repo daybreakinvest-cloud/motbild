@@ -1,6 +1,6 @@
 import { createClient } from "@supabase/supabase-js";
 
-const BASE_URL = "https://www.motbild.se";
+const BASE_URL = "https://motbild.se";
 
 const STATIC_PAIRS = [
   { sv: "/", en: "/en", priority: "1.0" },
