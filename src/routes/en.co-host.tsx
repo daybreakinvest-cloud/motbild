@@ -40,6 +40,15 @@ function EnglishCoHostPage() {
 
     if (!error) {
       setSkickat(true);
+      // Send confirmation email and notification
+      fetch("/api/notify-en", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          typ: "MEDARRANGOR",
+          data: { fornamn, efternamn, epost, telefon, forsamling, ort, roll, samfund },
+        }),
+      });
     } else {
       alert("Something went wrong while sending your inquiry. Please try again.");
     }
