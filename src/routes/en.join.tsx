@@ -59,6 +59,22 @@ function EnglishJoinPage() {
 
     if (!error) {
       setSubmitted(true);
+      // Send confirmation email and notification
+      fetch("/api/notify-en", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          typ: "MEDLEM",
+          data: {
+            fornamn: firstName,
+            efternamn: lastName,
+            epost: email,
+            telefon: phone,
+            ort: city,
+            engagemang: selectedEngagement,
+          },
+        }),
+      });
     } else {
       alert("Something went wrong while submitting your application. Please try again.");
     }
