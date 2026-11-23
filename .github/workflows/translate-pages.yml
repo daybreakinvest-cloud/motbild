@@ -72,7 +72,7 @@ jobs:
           Strict rules:
           1. Preserve Biblical Unitarian theological precision faithfully (e.g., "the Father, the only true God", "non-pre-existent", "Motbild – Biblical Unitarian Network").
           2. Preserve sentence case on all headings (only the first word and proper nouns capitalized—never Title Case or ALL CAPS unless the Swedish original is a small pill badge/button label).
-          3. Keep the English file's exact createFileRoute("/en/...") path, component name, "/en/..." <Link> targets, Supabase table/column names (like "medlemmar", "medarrangorer"), and Tailwind classes intact.
+          3. Keep the English file's exact createFileRoute("/en/...") path, component name, "/en/..." <Link> targets, "/api/notify-en" endpoints, Supabase table/column names (like "medlemmar", "medarrangorer"), and Tailwind classes intact.
           4. Sync any new text size classes or structural adjustments from the Swedish file to the English file.
           5. Output ONLY valid raw TypeScript/TSX code for the complete updated English file. Do NOT wrap output in markdown code fences.`;
 
@@ -132,7 +132,7 @@ jobs:
       - name: Verify production build before committing
         if: steps.changed.outputs.files != ''
         run: |
-          npm ci
+          npm install
           npm run build
 
       - name: Commit and push updated English pages
