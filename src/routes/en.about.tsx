@@ -10,18 +10,33 @@ function EnglishAboutPage() {
     <SiteLayout>
       {/* 1. HERO SECTION */}
       <section className="bg-[#090023] text-[#F9F8F5] py-20 md:py-24 px-6 border-b border-white/10 font-serif">
-        <div className="max-w-4xl mx-auto text-center space-y-5">
-          <div className="inline-block px-4 py-1.5 rounded-full border border-white/20 text-xs uppercase tracking-widest text-[#F9F8F5]">
-            IDENTITY &amp; MISSION
+        <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-[1fr_auto] items-center gap-10">
+          <div className="text-center md:text-left space-y-5">
+            <div className="inline-block px-4 py-1.5 rounded-full border border-white/20 text-xs uppercase tracking-widest text-[#F9F8F5]">
+              IDENTITY &amp; MISSION
+            </div>
+            <h1 className="text-4xl sm:text-4xl md:text-5xl font-bold leading-tight text-[#F9F8F5]">
+              Our mission and our faith
+            </h1>
+            <p className="text-xl sm:text-2xl text-[#F9F8F5] max-w-2xl mx-auto md:mx-0 leading-relaxed">
+              On a broader level, we seek to encourage critical thinking through education, debates, and dialogue.
+              More specifically, our purpose is to highlight a Biblical Unitarian perspective and give people the
+              opportunity to contrast it with the traditional view of God in a respectful manner.
+            </p>
           </div>
-          <h1 className="text-4xl sm:text-4xl md:text-5xl font-bold leading-tight text-[#F9F8F5]">
-            Our mission and our faith
-          </h1>
-          <p className="text-xl sm:text-2xl text-[#F9F8F5] max-w-2xl mx-auto leading-relaxed">
-            On a broader level, we seek to encourage critical thinking through education, debates, and dialogue.
-            More specifically, our purpose is to highlight a Biblical Unitarian perspective and give people the
-            opportunity to contrast it with the traditional view of God in a respectful manner.
-          </p>
+
+          <div className="flex flex-col items-center gap-4 mx-auto">
+            <div className="size-72 sm:size-96 rounded-full bg-white overflow-hidden shrink-0">
+              <img
+                src="/peter_abramsgard_portrattbild.png"
+                alt="Peter Abramsgård"
+                className="w-full h-full object-contain"
+              />
+            </div>
+            <p className="text-sm text-[#F9F8F5] text-center">
+              Peter Abramsgård - Director
+            </p>
+          </div>
         </div>
       </section>
 
