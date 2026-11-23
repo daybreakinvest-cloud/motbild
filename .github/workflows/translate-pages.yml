@@ -1,6 +1,7 @@
 name: Auto-translate Swedish pages to English
 
 on:
+  workflow_dispatch:
   push:
     branches:
       - main
@@ -19,7 +20,7 @@ permissions:
 
 jobs:
   translate:
-    if: "!startsWith(github.event.head_commit.message, 'Auto-translate')"
+    if: github.event_name == 'workflow_dispatch' || !startsWith(github.event.head_commit.message, 'Auto-translate')
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -32,18 +33,22 @@ jobs:
         with:
           node-version: "22"
 
-      - name: Find changed Swedish pages
+      - name: Find Swedish pages to translate
         id: changed
         run: |
-          FILES=$(git diff --name-only HEAD~1 HEAD -- \
-            src/routes/index.tsx \
-            src/routes/om-oss.tsx \
-            src/routes/debatt.tsx \
-            src/routes/medarrangor.tsx \
-            src/routes/bli-medlem.tsx \
-            src/routes/stadgar.tsx \
-            src/routes/integritetspolicy.tsx \
-            src/routes/cookiepolicy.tsx | tr '\n' ' ')
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            FILES="src/routes/index.tsx src/routes/om-oss.tsx src/routes/debatt.tsx src/routes/medarrangor.tsx src/routes/bli-medlem.tsx src/routes/stadgar.tsx src/routes/integritetspolicy.tsx src/routes/cookiepolicy.tsx"
+          else
+            FILES=$(git diff --name-only HEAD~1 HEAD -- \
+              src/routes/index.tsx \
+              src/routes/om-oss.tsx \
+              src/routes/debatt.tsx \
+              src/routes/medarrangor.tsx \
+              src/routes/bli-medlem.tsx \
+              src/routes/stadgar.tsx \
+              src/routes/integritetspolicy.tsx \
+              src/routes/cookiepolicy.tsx | tr '\n' ' ')
+          fi
           echo "files=$FILES" >> "$GITHUB_OUTPUT"
 
       - name: Translate changed pages with Gemini
