@@ -87,10 +87,10 @@ function EnglishJoinPage() {
       <section className="bg-[#090023] text-[#F9F8F5] py-20 md:py-24 px-6 border-b border-white/10 font-serif text-center">
         <div className="max-w-4xl mx-auto space-y-5">
           <h1 className="text-4xl sm:text-4xl md:text-5xl font-bold leading-tight text-[#F9F8F5]">
-            Become a member
+            Make the truth harder to ignore
           </h1>
           <p className="text-xl sm:text-2xl text-[#F9F8F5] max-w-2xl mx-auto leading-relaxed">
-            {/* Subtitle will be added in the next phase */}
+            Sound arguments change nothing in silence. Real change arises only when a conviction is shared by many.
           </p>
         </div>
       </section>
